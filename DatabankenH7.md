@@ -220,7 +220,8 @@ nagaan of de aangevraagde lock compatibel (zie matrix hieronder) is
 	* impliciet als de transactie eindigt (via abort of commit)
 
 **Compatibiliteitsmatrix:**
-| | Aangevraagde S-Lock | Aangevraagde X-Lock |
+
+|  | Aangevraagde S-Lock | Aangevraagde X-Lock |
 | :---: | :---: | :---: |
 | **Bestaande S-Lock** | Grant | Wait |
 | **Bestaande X-Lock** | Wait | Grant |
