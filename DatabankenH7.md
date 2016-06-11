@@ -181,6 +181,94 @@ schedule faalt
         * **durability** eigenschap van transacties
 
 
+### Locking 
+> Locking is een methode gebruikt om **concurrente
+toegang** tot data te beheren.
 
+Wanneer een transactie toegang heeft tot de data kan er via een lock voor gezorgd worden dat **andere transacties toegang tot de data geweigerd** worden. 
 
+**Locking = Meest gebruikte manier** om de consistentie te garanderen
+
+##### Basisregels locking
+* Een transactie kan een **data item lezen of schrijven** enkel en alleen als het een **lock heeft verworven** voor dat data element, en het bovendien deze lock nog niet heeft vrijgegeven.
+
+* Als een transactie een lock op een data item verwerft, dan moet het later ook **lock terug vrijgeven**
+
+##### Soorten Locks
+* Shared lock (S-lock)
+    * Transactie met shared lock op data item kan dat data item *lezen* maar niet wijzigen
+    * Meerdere transacties kunnen gelijktijdig een shared lock op eenzelfde data item bezitten.
+* Exclusive lock (X-lock) 
+    * Transactie met exclusive lock op data item kan dat data item **lezen en wijzigen**
+    * Op elk ogenblik kan hoogstens 1 transactie een exclusive lock op een data item hebben.
+
+**_Opmerking_:** een data item kan verwijzen naar een veld van een record, maar ook naar een tabel,
+of de volledige db - zie verder: granulariteit
+    
+##### Praktisch
+* De transactie die toegang wil tot een data item vraagt een lock aan op dat
+item
+	* shared lock voor lezen, exclusive lock voor lezen/schrijven
+	* wanneer er nog geen lock op dat item bestaat, wordt de aanvraag ingewilligd
+	* Wanneer er reeds een lock op het item is, gaat het dbms
+nagaan of de aangevraagde lock compatibel (zie matrix hieronder) is
+        * aanvraag shared lock op item met shared lock: granted
+        * aanvraag exclusive lock op item met lock: wait
+            * de transactie moet wachten tot de lock op het data item wordt vrijgegeven
+* De transactie geeft een lock vrij
+	* expliciet, of
+	* impliciet als de transactie eindigt (via abort of commit)
+
+**Compatibiliteitsmatrix:**
+| | Aangevraagde S-Lock | Aangevraagde X-Lock |
+| :---: | :---: | :---: |
+| **Bestaande S-Lock** | Grant | Wait |
+| **Bestaande X-Lock** | Wait | Grant |
+
+### Deadlock
+> Een deadlock is een ** impasse** die kan ontstaan wanneer twee of meerdere transacties elk **wachten** op het vrijgeven van locks die de andere transactie heeft
+
+##### Oplossen Deadlock
+* **Abort en restart** van 1 of meerdere transacties
+* Voorbeeld:
+
+![alt text](http://puu.sh/pp2F3/9bba9bfce6.png "Voorbeeld Deadlock")
+
+##### Technieken om met deadlocks om te gaan:
+* **Timeouts:** een transactie die een lock aanvraagt **wacht voor een bepaalde vooraf gedefinieerde tijd op die lock**, indien lock niet toegekend is tijdens dit interval: 
+    * Assumptie dat er een deadlock is (hoewel dit niet noodzakelijk zo is...) 
+    * **Abort en restart** van de transactie
+* **Deadlock prevention:** gebruikmakend van **transaction time-stamps** ( speciale time-stamp voor deadlock detection). T wacht op locks die U vastheeft:
+    * **Wait-die algoritme**: 
+        * Als T ouder is dan U dan zal T wachten
+        * Zoniet dan sterft T en is er een abort/restart met dezelfde timestamp.
+    * **Wound-wait algoritme**
+        * Als T ouder is dan U dan zal het U 'verwonden' (--> meestal betekent dit een abort/restart van U) 
+        * Zoniet zal T wachten 
+* **Deadlock detection and recovery:** 
+    * **Deadlock detection**
+        * gebruik makend van een **wait-for graph** met transactie afhankelijkheden
+        * wanneer de wait-for graph een lus bevat is er een
+    deadlock
+        * op regelmatige tijdstippen wordt deze graph
+    getest op lussen
+    * **Recovery van deadlock detection**
+    	* 1 of meerdere transacties worden ge-abort
+    * Problemen
+    	* **Victim selection**
+        	* abort die transactie waarvoor de abort een **'minimale kost'** met zich meebrengt
+        * Enkele parameters die kunnen gebruikt worden:
+        	* tijd dat de transactie al aan het runnen was
+        	* aantal data items dat reeds werd gewijzigd door de transactie
+        	* aantal data items die nog moeten worden gewijzigd door de transactie --> deze parameter is echter niet altijd gekend
+    * Hoe ver moet een transactie een rollback doen
+        * dit is niet noodzakelijk de volledige transactie
+    * Voorkomen van starvation
+        * komt voor wanneer steeds dezelfde transactie als victim
+    wordt geselecteerd
+        – bijhouden van een teller
+
+## Transacties in SQL SERVER
+---
+### DB Transacties
 
