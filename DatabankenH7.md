@@ -273,3 +273,327 @@ nagaan of de aangevraagde lock compatibel (zie matrix hieronder) is
 ---
 ### DB Transacties
 
+* **Impliciete** transacties: INSERT, UPDATE, DELETE en elke transact SQL-opdracht
+* **Expliciete** transacties: zelf aangeven waar transactie begint, wanneer de transactie kan
+afgesloten worden, of hoe je op je stappen terugkeert om fouten op te vangen
+    ```SQL    
+        BEGIN TRANSACTION
+        COMMIT TRANSACTION
+        ROLLBACK TRANSACTION
+    ```
+* Alle info ivm transacties worden weggeschreven in de **transactielog**
+ 
+### Stored Procedures en Transacties
+```SQL
+CREATE PROCEDURE usp_Customer_Insert
+    @customerid varchar(5),
+    @companyname varchar(25)
+    @orderid int OUTPUT
+AS
+    BEGIN TRANSACTION
+        INSERT INTO customers(customerid, companyname)
+        VALUES(@customerid, @companyname)
+        if @@error <> 0 BEGIN
+            ROLLBACK TRANSACTION
+            RETURN -1
+        END
+        INSERT INTO orders(customerid)
+        VALUES(@customerid)
+        if @@error <> 0 BEGIN
+            ROLLBACK TRANSACTION
+            RETURN -1
+        END
+        COMMIT TRANSACTION
+        SELECT @orderid=@@IDENTITY
+```
+
+### Isolation Levels
+Bepalen het gedrag van concurrent users die data lezen of schrijven. 
+* **Reader**: 
+    * Statement dat data leest, m.b.v. een shared lock
+    * Kun je **niet beinvloeden** voor wat betreft de locks die ze nemen en de duur van de locks
+* **Writer**:  
+    * Statement dat data schrijft, m.b.v. een exclusive lock.
+    * Kun je **wel excpliciet beinvloeden** m.b.v. **isolation levels**, hierdoor hebben ze ook impliciete invloed op het gedrag van writers.
+
+    **Isolation level** = setting op de sessie-niveau of query-niveau. 
+    
+##### 4 Isolation Levels in SQL Server
+
+![alt text](http://puu.sh/pp5sf/051d29f1fa.png "Isolation Levels Slide")
+
+1. **Read Uncommitted**
+    *  laagste isolatieniveau
+    * **reader vraagt geen shared lock**
+    * reader nooit in conflict met writer (die
+exclusieve lock heeft)
+    * reader leest uncommitted data (= dirty read)
+2. **Read Committed**
+    * default isolaton level, zie demo
+	* laagste niveau dat dirty reads verhindert
+	* reader leest enkel committed data
+	* **reader vraagt** hiervoor shared **lock**
+	* **als bij deze vraag een writer een
+exclusive lock heeft, moet reader wachten op
+shared lock**
+	* reader houdt shared lock tot data verkregen is,
+niet tot einde van zijn transactie
+        *  **nogmaals lezen van de data in zelfde transactie kan
+ander resultaat opleveren**
+= non-repeatable reads of inconsistent analysis
+        * acceptabel voor veel toepassingen, maar niet altijd
+3. **Repeatable read**
+    * reader vraagt shared lock en **houdt deze tot
+einde van de transactie**
+    * andere transactie kan geen exclusive lock
+verkrijgen tot einde van de transactie van de
+reader
+    * **repeatable read = consistent analysis**
+    * vermijdt ook lost update (kan wel bij 1 & 2)
+door bij begin transactie shared lock te
+nemen (m.b.v. SELECT want writers kun je
+niet beïnvloeden, readers wel)
+4. **Serializable**
+    * Repeatable read lockt enkel rijen gevonden
+bij eerste SELECT
+    * Zelfde SELECT in zelfde transactie kan
+nieuwe rijen geven (toegevoegd door andere
+transactie) = phantoms
+    * **Serializable** vermijdt phantoms
+    * Lockt alle keys die beantwoorden aan
+WHERE-clause, ook toekomstige
+ 
+### Isolation levels: Sessie Niveau
+```SQL
+    SET TRANSACTION ISOLATION LEVEL READ COMMITED
+```
+### Isolation levels: Query Niveau
+* override isolation level met "table hint":
+    ```SQL
+    SELECT * FROM ORDERS WITH (READUNCOMMITTED);
+    -- of
+    SELECT * FROM ORDERS WITH (NOLOCK);
+    ```
+*  dit vermijdt dat langlopende ad-hoc query's op
+een productie-systeem updates in andere
+transacties laten wachten bij READ
+COMMITTED en hoger
+
+##### Voorbeeld xTreme: oplossing m.b.v transacties
+
+
+.
+
+```SQL
+    alter procedure vb @productclassname nvarchar(50)
+    as
+    declare @id int
+    SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+    BEGIN TRANSACTION
+    -- Zorg voor shared lock op volledige tabel.
+    -- Samen met level "repeatable" zorgt dit ervoor
+    -- er geen records kunnen bijkomen tijdens de transactie.
+    -- Repeatable volstaat niet:
+    -- houdt enkel lock op reeds gelezen data
+    select @id=max(productclassid) from productclass
+    set @id = @id + 1
+    insert into productclass values(@id,@productclassname)
+    COMMIT
+    SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+    return @id
+```
+
+### Triggers en Transacties
+* een trigger maakt deel uit van de transactie die de
+triggerende opdracht bevat
+* binnen de trigger kan de transactie geROLLBACKed
+worden
+```SQL
+CREATE TRIGGER delSpeler ON Speler
+FOR delete
+AS
+IF (SELECT COUNT(*)
+    FROM deleted JOIN SpelerPloeg
+    ON SpelerPloeg.snr = deleted.snr) > 0
+BEGIN
+    ROLLBACK TRANSACTION
+    PRINT ‘Je mag geen speler verwijderen als hij behoort tot een ploeg.' 
+```
+
+## Recovery
+---
+> **Recovery** is het proces waarbij
+een **DB wordt teruggebracht naar een correcte toestand**
+wanneer er zich een failure voordoet
+
+**Waar zit de data?:**
+- Main Memory, - Magnetic Disk, - Tape, - Optical Disk
+
+![alt text](http://puu.sh/ppcTx/0a28767312.png "Schema Data")
+
+- **Stabiele opslag:** replicatie op verschillende plaatsen met onafhankelijke failure modes.
+
+### Soorten Failures
+* **system crash**
+	* hardware of software errors
+	* verlies van gegevens in main memory
+* **media failure**
+	* vb. disk head crash
+	* verlies van gegevens in secondary storage
+* **software error in application**
+	* vb. logische fout die transactie doet falen
+* **natuurlijke 'rampen'**
+	* vb. brand, aardbeving
+* **slordigheid**
+	* vb. onopzettelijk wissen van gegevens door gebruiker of db administrator
+* **sabotage**
+	* vb. opzettelijk wissen of corrupteren van gegevens of infrastructuur (sw/hw)
+
+### Transactions en recovery
+* eenheid voor recovery is een transactie
+* **recovery manager** staat in voor
+    * atomiciteit (**A**CID)
+    * duurzaamheid (ACI**D**)
+* moeilijkheid
+    * schrijven naar een db is **niet atomair**
+        * transactie kan committen zonder dat alle effecten al
+(permanent) in de db geregistreerd zijn
+
+### High level vs low level operaties
+- **Voorbeeld**
+
+![alt text](http://puu.sh/ppdHr/93640a3f0f.png "High level vs low level schema")
+
+### Undo en redo
+* Enkel bij een 'flush' van de buffer is data
+permanent
+	* flushing: data van primary storage overhevelen
+naar disk storage
+* **Expliciete** flush
+	* force-writing
+	* dit gebeurt via een commando, bv. bij commit
+* **Impliciete** flush
+	* wanneer de buffers vol zijn
+* Wat bij failure tussen schrijven naar buffer
+en flushing?
+    * transactie was **reeds ge-commit**
+        * durability: **redo** de wijzigingen
+        * aka rollforward
+    * transactie was **nog niet ge-commit**
+        * atomicity: **undo** de wijzigingen
+            * partiële undo: undo van 1 transactie
+            * globale undo: undo van alle actieve transacties
+        * aka rollback
+* **Voorbeeld:**
+![alt text](http://puu.sh/ppesT/df8ddd38c4.png "Voorbeeld undo en redo")
+
+### Buffer management
+* Buffer management omvat het **beheer van
+transfer van buffers** tussen main memory en
+disk
+* Praktisch:
+	* inlezen tot buffer vol
+	* **replacement strategie** voor force-write
+* FIFO first-in-first-out
+* LRU least recently used
+* **_Merk op:_** een pagina aanwezig in een buffer wordt nooit gelezen van disk
+
+### Recovery faciliteiten
+Het DBMS biedt volgende diensten aan
+* **Back-up** mechanisme
+    * periodische back-ups van de db
+* **Logging** mogelijkheden
+    * op de hoogte blijven van de huidige toestand van
+transacties en db wijzigingen
+* **Checkpoint** mogelijkheden
+    * om lopende wijzigingen in de db permanent te maken
+* **Recovery manager**
+    * om de db in een consistente toestand te brengen na een failure
+
+### Back-up mechanisme
+* Op regelmatige basis worden er
+automatisch **reservekopieën** van de db en
+de logfile aangemaakt
+    * dit gebeurt zonder systeem te moeten stoppen
+    * de kopieën worden bewaard op offline storage
+* Mogelijke benaderingen
+    * **complete** back-up
+    * **incrementele** back-up
+### Logging
+* **Log** bevat mogelijks
+	* **Transaction records**
+        * transaction id
+        * type van log record (transaction start, insert, update, delete, abort (rollback), commit)
+        * id van het gewijzigde data item (enkel bij insert, update, en delete operaties)
+        * before-image
+        	* waarde data item vóór wijziging (enkel bij update en delete operaties)
+        * after-image
+        	* waarde data item na wijziging (enkel bij update en insert operaties)
+        * log management info
+        	* bv. pointers naar previous/next record van die transactie
+	* **Checkpoint records**
+* Log wordt ook gebruikt voor andere doeleinden
+	* performance monitoring, auditing
+	* hiervoor is nog **extra info** in de log opgeslagen
+* Log is heel belangrijk
+	* wordt in **twee- of drievoud** bijgehouden
+	* ook offline
+* Log moet snel toegankelijk zijn
+	* minor failures moeten direct opgelost worden
+	* bevindt zich dus liefst ook op **online storage**
+        * indien de grootte dit toestaat
+* Voorbeeld log: ![alt text](http://puu.sh/ppgmP/e3a0d207bc.png "Voorbeeld Logging")
+
+### Checkpointing
+> Een **checkpoint** is een **synchronisatiepunt** tussen de databank en de log, op dit punt worden alle buffers ge-flushed
+
+Checkpoints worden voorzien op vooraf ingestelde intervallen (bv. Om de 15 minuten). 
+
+Een checkpoint omvat:
+1. Alle log records in main memory wegschrijven naar disk 
+2. De gewijzigde delen van de buffers wegschrijven naar disk 
+3. Een checkpoint in de log registreren. ( Dit record bevat id van alle transacties die actief zijn op het moment van checkpointing).
+
+**Voorbeeld:** recovery met checkpointing 
+![alt text](http://puu.sh/ppgWo/b4ffb00a5d.png "Voorbeeld checkpointing")
+
+## Recovery Technieken
+---
+Soort recovery procedure die gevolgd wordt hangt af van de ernst van het probleem:
+* Serieuze (fysische) problemen
+    * back-up restoren
+    * wijzigingen van committed transacties (sedert de backup) die verloren
+gingen, herstellen adhv de log
+* Problemen van inconsistentie
+    * kan zonder back-up
+    * undo/redo adhv de log's before en after images
+
+### Deferred update
+> Bij een **deferred recovery protocol** worden
+wijzigingen van een transactie niet weggeschreven naar de DB zolang de transactie niet het commit-punt bereikt
+
+1. **Start** van de transactie: registreer de transactie start record in log
+2. Bij een **write** actie: registreer dit in een log-record (**enkel after-image**, geen before image nodig). **Registreer dit niet in de DB**
+3. **Commit** van de transactie: registreer transactie commit record in log. Schrijf alle log records weg naar disk (**flush voor de volgende stap!**) bij eerstvolgende checkpoint. Commit **update de DB adhv de log records.**
+4. **Abort** van de transactie: **negeer de log records, schrijf niets naar disk**
+
+### Immediate update
+> Bij een **immediate update recovery protocol** worden
+wijzigingen van een transactie direct weggeschreven naar de db
+
+1. **Start** van de transactie: registreer transaction start record in log
+2. Bij een **write** actie: schrijf het **log-record naar disk** (het log-record bevat **before-image, en after-image**), bij flush van de buffers (bij eerstvolgende checkpoint) wordt de wijziging naar de db
+geschreven
+3. **Commit** van de transactie: schrijf een transaction commit log record naar disk
+4. **Abort** van de transactie: gebruik **before images voor undo**
+
+###### **Voorbeeld**
+![alt text](http://puu.sh/ppioj/b2ccf0f897.png "Voorbeeld Recovery Technieken")
+|| Deferred | Immediate |
+| :---: | :---: | :---: |
+| T1 | niets | UNDO via Before-Images |
+| T2 | niets | niets |
+| T3 | niets | niets |
+| T4 | REDO adhv After-Images | REDO adhv After-Images |
+| T5 | REDO adhv After-Images | REDO adhv After-Images |
+| T6 | niets | UNDO via Before-Images |
