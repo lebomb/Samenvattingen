@@ -589,6 +589,8 @@ geschreven
 
 ###### **Voorbeeld**
 ![alt text](http://puu.sh/ppioj/b2ccf0f897.png "Voorbeeld Recovery Technieken")
+
+
 || Deferred | Immediate |
 | :---: | :---: | :---: |
 | T1 | niets | UNDO via Before-Images |
