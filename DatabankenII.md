@@ -1038,8 +1038,8 @@ ADD cv varchar(max);
 ALTER TABLE Employees
 ADD foto varbinary(max);
 ```
-
-## Hoofdstuk 6: Indexen en performantie 
+---
+# Hoofdstuk 6: Indexen en performantie 
 ---
 ### Space Allocation Door SQL Server
 
@@ -1175,8 +1175,9 @@ drop index student.rijksregNr_Index
 	* kolommen met een klein aantal mogelijke waarden (vb. geslacht)
 	* kolommen in kleine tabellen
 	* kolommen van het type bit, text of image
-	
-## Hoofdstuk 7: Transactiebeheer
+
+---	
+# Hoofdstuk 7: Transactiebeheer
 ### Inleiding
 ---
 Een **DBMS** ondersteunt:
@@ -1778,7 +1779,8 @@ geschreven
 | T6 | niets | UNDO via Before-Images |
 
 
-## Hoofdstuk 8: Datawarehousing & Business Intelligence
+---
+# Hoofdstuk 8: Datawarehousing & Business Intelligence
 ### Inleiding
 ---
 Data warehousing zit in de lift
