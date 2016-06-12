@@ -1176,7 +1176,7 @@ drop index student.rijksregNr_Index
 	* kolommen in kleine tabellen
 	* kolommen van het type bit, text of image
 	
-	## Hoofdstuk 7: Transactiebeheer
+## Hoofdstuk 7: Transactiebeheer
 ### Inleiding
 ---
 Een **DBMS** ondersteunt:
