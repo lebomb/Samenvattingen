@@ -2032,7 +2032,153 @@ aangeboden worden aan andere gebruikers
 
 ## Ontwerp
 ---
+*Thanks Sofie*
 
-TE MOE IEMAND VERRAS ME PLS FINISH IT
-	
+
+Er zijn 2 ontwikkel methodologieën
+* **Inmon**:
+    creatie van een data model gebasseerd op alle gegevens van de organisatie &rarr; Enterprise Data Warehouse (EDW)
+    * Van hieruit worden data-marts voor elk departement gedistilleerd
+    * Gebruik van ERD en tabellen in normaalvorm voor de beschrijving van het EDW
+* **Kimball**: identificatie van informatie behoeften en business processen van de organisatie &rarr; Data Warehouse Business Matrix
+    * Selectie en ontwikkeling van een eerste data mart voor de behoeften van een groep gebruikers.
+    * Via integratie van data marts komen we tot het EDW
+    * Gebruik van sterschema en varianten
+    
+### Kimball's Business Dimensional Lifecycle
+**Focus** op het voldoen aan de informatiebehoeften van de organisatie via het bouwen van enkele, geïntegreerde, makkelijk bruikbare en selle informatie structuur. Deze structuur wordt op een incrementele, iteratieve manier gebouwd.
+
+**Doel**: opleveren van een volledige oplossing waarbij
+* DWH
+* ad-hoc query tools
+* reporting applicaties
+* geavanceerde analytische tools
+* training en support voor de gebruikers 
+
+zijn inbegrepen.
+
+**3 tracks**
+* technologie
+* data track
+* business intelligence applications
+
+### Dimensionality modelling
+> **Dimensionality modeling** is een techniek om een logisch ontwerp te maken. 
+
+Men streeft er naar om de data te presenteren in een standaard, intuïtieve vorm, die toegankelijk is met een hoge performantie.
+
+#### Dreamhome DWH: voorbeeld
+Management wil analyse van verkoop van huizen 
+
+**Voorbeeld queries**
+* wat was het totaal aan inkomsten van verkoop van eigendommen in het derde kwartaal van 2008?
+* welke zijn de drie meest populaire gebieden in elke stad voor het verhuren van eigendommen in 2008; en hoe is dit in vergelijking met de resultaten van de twee vorige jaren?
+* wat zou het effect zijn van een verhoging van de juridische kosten met 3.5% en een verlaging van de belastingen met 1.5% op de verkoop van eigendommen die meer waard zijn dan 200000 Euro?
+* welke soorten eigendommen worden verkocht voor prijzen die boven de gemiddelde prijs van eigendommen in de grootste steden liggen en hoe hangt dit samen met de demografische gegevens
+* wat is het verband tussen de jaarlijkse inkomsten van elke kantoor en het aantal verkoopsmensen die in elk kantoor werken?
+
+**ERD**
+![alt text](http://puu.sh/ppz4F/a1cba72b39.PNG "Voorbeeld Dimensionaal model")
+
+#### Sterschema
+> Een **ster schema** is een dimensioneel model die een feitentabel heeft, die omgeven is door gedenormaliseerde dimensietabellen.
+
+![alt text](http://puu.sh/ppz5x/94409d7e78.PNG "Voorbeeld sterschema")
+
+* **fact table** met samengestelde primaire sleutel
+* **dimension tables** met een niet samengestelde primaire sleutel
+
+Elke PK van een dimension table komt overeen met een deel van de PK van de fact table. Elk deel van de PK van de fact table is een FK die naar één van de dimensies refereert.
+
+***Opmerking***  
+* de natuurlijke sleutels uit het operationeel systeem worden opgenomen maar niet als sleutel in het sterschema gebruikt
+* surrogaatsleutels zijn simpele integer-sleutels
+* ze zorgen voor onafhankelijkheid van data tussen OLTP en DWH
+
+
+##### Feitentabel
+bevat data over feiten
+bv. feitelijke data over de verkoop van een eigendom.  
+Feiten worden gegenereerd oor gebeurtenissen die zich hebben voorgedaan. Ze zullen hoogstwaarschijnlijk nooit veranderen, ongeacht de manier waarop men ze analyseert.
+* grote bulk van data in DWH dus tabel kan extreem groot zijn
+* feitelijke data wordt beschouwd als read-only data, die niet verandert in tijd
+* bevatten één of meerdere numerieke waarden, feiten die voor elk record toepasbaar zijn  
+Meestal zijn feiten additief, ze worden zelden maar voor 1 record geraadpleegd
+
+ **Voorbeeld**
+
+![alt text](http://puu.sh/ppz5T/d49dacfa72.PNG "Voorbeeld feitentabel")
+
+
+##### Dimensietabellen
+bevat de referentie-informatie; beschrijvende, op tekst gebaseerde, informatie  
+bv. het eigendom, de koper, de verkoper, ...
+* attributen worden gebruikt als constraints bij DWH queries  
+  bv. queries die gaan over verkopen van eigendommen in 'Glasgow'
+  
+Sterschema's kunnen query performantie aanzienlijk verhogen door referentie-informatie te denormaliseren en bij te houden in één enkele dimensietabel  
+zie bv. city, region, country
+
+**Voorbeeld**
+
+![alt text](http://puu.sh/ppz69/ced07c54bc.PNG "Voorbeeld dimensietabellen")
+
+#### Sneeuwvlok schema
+> Een  **sneeuwvlokschema** is een variant op het sterschema waarbij dimensies worden bijgehouden in genormaliseerde dimensietabellen
+
+![alt text](http://puu.sh/ppz58/b6605c5742.PNG "Voorbeeld sneuuwvlokschema")
+
+***Opmerking***  
+ook andere dimensietabellen zullen nu refereren naar City en Region tabellen
+
+Indien een combinatie van genormaliseerde en niet genormaliseerde dimensietabellen wordt gebruikt spreekt men van een **ster-vlok schema**
+
+### Voordelen
+de voorspelbare en standaardvormvan het dimensioneelmodel levert enkele voordelen op:
+* efficiëntie
+    * de consistenteDB-structuur laat toe dat tools op efficiëntere maniertoegang tot de data kunnen krijgen
+* veranderendebehoeften
+    * het model kan zich aanpassen aan veranderende behoeften daar elke dimensie equivalent is t.o.v. de feitentabel
+    * goed model voor ad-hoc queries
+* uitbreidbaarheid
+    * toevoegen van nieuwe feiten(met de juiste granulariteit)
+    * toevoegen van nieuwe dimensies
+    * toevoegen van attributen aand imensies
+    * dimensies naar een kleinere granulariteit overzetten vanaf een bepaald punt in de tijd
+* mogelijkheid om standaard business situaties te modelleren
+* voorspelbare query processing
+    * de manier waarop de tabellen gebruikt worden in queries is voorspelbaar(de queries niet!)
+
+### DM en ER modellen
+* Entity Relationship Diagrammen
+    * gebruikt om de DB voor OLTLP systemen te ontwerpen
+    *  basis: de relaties tussen entiteiten modelleren, met als doel redundantie weg te werken
+        * redendantie is nadelig voor OLTP systemen
+    *  ad-hoc queries kunnen moeilijker behndeld worden
+        * leiden tot enoerm veel joins van enorm veel tabellen
+        
+* Dimensionaal Modeleren
+    * gebruikt om de DB van een DWH (of datamart) te ontwerpen
+    * intuïtieve opslag met een hoge graad aan performantie bij raadpleging van de gegevens
+    
+Eén ERD wordt uitgesplitst over meerdere DM-en, deze DM-en hangen samen via gedeelde dimensies
+
+### Dimensional Modeling Stage
+**DOEL**  
+* creatie van een DM voor een data mart
+* dimensionaliseren van het relationeel model van een bestaande OLTP DB
+
+Dit gebeurt in 2 fasen:
+1. creatie van een high-level DM
+2. toevoegen van detail aan het model via identificatie van attributen voor de dimensies
+
+### FASE 1: creatie van een high-level DM
+![alt text](http://puu.sh/ppAzL/798001cdc4.PNG)
+
+##### STAP 1: selecteer een business process
+##### STAP 2: bepaal de granulariteit
+##### STAP 3: kies de dimensies
+##### STAP 4: identificeer feiten
+
+### FASE 2: identificieer alle attributen voor de gekozen dimensies
 
