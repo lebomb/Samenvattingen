@@ -251,6 +251,7 @@ aangeboden worden aan andere gebruikers
 
 ## Ontwerp
 ---
+##### Thanks Sofie
 
 Er zijn 2 ontwikkel methodologieën
 * **Inmon**:
@@ -393,13 +394,81 @@ Dit gebeurt in 2 fasen:
 ![alt text](http://puu.sh/ppAzL/798001cdc4.PNG)
 
 ##### STAP 1: selecteer een business process
+Het business process refereert naar het thema voor een welbepaalde datamart  
+Voor de erste datamart kiezen we liefst één die
+* hoogstwaarschijnlijk op tijd zal kunnen opgeleverd worden,
+* binnen het budget valt,
+* een antwoord geeft op commercieel belangrijke business vragen  
+Dikwijls is deze gerelateerd aan verkoop financiën.
 ##### STAP 2: bepaal de granulariteit
+Dit bepaalt wat een feit in de feitentabel exact gaat voorstellen:
+* elk individueel record overnemen uit operationele gegevens of
+* groeperen
+
+Leidraad:
+* hoe kunnen we tegemoetkomen aan de business requirements?
+* wat is mogelijk met de beschikbare data source?
+
+Granulariteit bepaalt de dimensies (volgende stap) en de granulariteit van de dimensies.
 ##### STAP 3: kies de dimensies
+Dit bepaalt de context binnen dewelke we de feiten in de feitentabel zullen kunnen bevragen.  
+Elke dimensie die meer dan 1 DM, dus meer dan 1 datamart, voorkomt, noemen we een **conformed dimension**.  
+Conformed dimensions zijn exact gelijk aan elkaar of de een is een subset van de andere.
+
 ##### STAP 4: identificeer feiten
+De granulariteit van de feitentabel bepaalt welke feiten er in de datamart kunnen gebruikt worden.  
+Feiten zijn nummeriek en additief.  
+Onbruikbare feiten zijn:
+* niet numerieke waarden
+* niet additieve waarden
+* feiten met een granulariteit die verschilt van de granulariteit van de andere feiten in de feitentabel
 
 ### FASE 2: identificieer alle attributen voor de gekozen dimensies
+Tekstuele omschrijving: intuïtief, zelfverklarend
 
+Bruikbaarheid van de datamart hangt grotendeels af van de scope en aard van de attributen die in de dimensietabellen zitten.
 
+### Aandachtspunten
+* de duur van de DB bepaalt hoe ver terug in de tijd de fettentabel gaat
+* langzaam veranderende dimensies  
+  wanneer een dimensie verandert moet je er mogelijks voor zorgen dat je de nieuwe waarden niet gebruikt bij analyses an oudere transacties.
+    * type 1: het attribuut dat verandert wordt gewoon overschreven
+    * type 2: wanneer een attribuut verandert wordt een nieuw record in de dimensietabel toegevoegd
+    * type 3: zorg dat de oude en de nieuwe waarde voor het attribuut beschikbaar zijn in het record
+    
+Op het einde van deze life-cycle zullen we een datamert hebben die voldoet aan 1 van de business requirements. Deze datamart zal geïntegreerd worden met andere datamarts om te komen tot een enterprise wide DWH. 
 
+Een DM waarbij meer dan 1 feitentabel 1 of meer dimensies deelt noemen we een **feitenconstellatie**.
+### Voorbeeld Dimensional Modeling Stage
+**DreamHome**
+##### STAP 1: selecteer een business process
+Wat zijn de business processen?
+* verkoop van eigendommen
+* verhuur van eigendommen
+* tonen van eigendommen
+* adverteren van eigendommen
+* onderhoud van eigendommen
 
+ERD van DreamHome met de belangrijkste entiteiten voor elk business process ingekleurd
+![alt text](http://puu.sh/ppYcV/1bf0a2bdd5.PNG "ERD")
 
+We kiezen een business process:  
+**verkoop van eigendommen**
+
+![alt text](http://puu.sh/ppYiF/031bea87e3.PNG "business processen")
+
+##### STAP 2: bepaal de granulariteit
+keuze: PropertySale - verkoop van elke eigendom  
+Nu kunnen we dimensies kiezen:
+* Branch, Staff, ClientBuyer, PropertyForSale, Promotion
+* extra kern dimensie steeds aanwezig in een DM is tijd
+
+##### STAP 3: kies de dimensies
+![alt text](http://puu.sh/ppYoJ/57b1466499.PNG)
+
+#### STAP 4: identificeer feiten
+PropertySale: 
+* offerPrice
+* sellingprice
+* saleCommission
+* saleRevenue
