@@ -37,13 +37,21 @@ Een rationale agent moet ook beschikken over een performantiemaat, deze moet nie
 11. **Discreet**: er zijn een eindig aantal toestanden. 
 12. **Continu**: er zijn een oneindig aantal mogelijke acties.
 
-**Structuue van Agenten**
+**Structuur van Agenten**
 Op een hoog niveau worden agenten onderverdeeld in 4 types, deze zijn de volgende (in oplopende volgorde van complexiteit en  bruikbaarheid):
 
-1. **Eenvoudige reflex:** de agent heeft geen geheugen en neemt volgende actie enkel en alleen op basis van de huidige waarneming. 
+1. **Eenvoudige reflex:** 
+De agent heeft geen geheugen en neemt volgende actie enkel en alleen op basis van de **huidige waarneming** (**conditie-actie regel**, bv. ALS auto voor mij remt DAN rem).
+
 2. **Modelgebaseerde reflex:** 
-3. **Doelgebaseerde:**
-4. **Utiliteitsgebaseerde:** 
+De agent houdt een **inschatting** bij van wat de **huidige toestand** is, deze inschatting is in het algemeen *niet gelijk* aan de werkelijke toestand. De agent beschikt over een **model van de manier waarop de toestand wijzigt**, zowel onafhankelijk van de agent (bv. physics van de wereld) als door de acties van de agent zelf. Telkens wanneer een nieuze waarneming binnenkomt wordt de inschatting van de huidige toestand aangepast m.b.v. het model, de waarneming en de laatst ondernomen actie. **Daarna worden de conditie-actie regels** losgelaten op de inschatting van de huidige toestand. 
+
+3. **Doelgebaseerde: (= modelgebaseerde + doel + denken)**
+De inschatting die gedaan wordt bij de modelgebaseerde reflex, of zelfs de volledige kennis van de huidige toestand, is niet steeds voldoende om te weten wat je moet doen. De agent heeft in deze situaties een **beschrijving van het doel** nodig. Hierbovenop **denkt** een doelgebaseerde agent ook **hoe de omgeving kan evolueren** op basis van zijn acties. Deze agent is veel **flexibeler** dan de modelgebaseerde, wanneer die een nieuwe bestemming wil geven moeten alle conditie-actie regels herschreven worden, voor de doelgebaseerde enkel de bestemming.  
+
+4. **Utiliteitsgebaseerde: (= doelgebaseerde + performantie)**
+Een doelgebaseerde agent is dichotoon: een toestand is een doeltoestand of niet en maakt dus geen onderscheid in performantie tussen deze toestanden. **Utiliteitsgebaseerde agenten** hebben een **utiliteitsfunctie** die **aangeeft hoe performant een toestand is** (~ internalistatie v.d performantiemaat). Wanneer utlititeitsfunctie en performantiemaat overeenkomen dan zal een utiliteitsgebaseerde agent die zijn utiliteit gaat maximaliseren ook meteen zijn performantiemaat gaan maximaliseren. Hierdoor is ze dus veel **flexibeler dan een doelgebaseerde agent**.
+
 
 
 
