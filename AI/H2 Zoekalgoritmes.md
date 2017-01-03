@@ -26,7 +26,9 @@ Het algemene algoritme houdt een lijst bij van mogelijke partiële oplossingen d
 
 
 **Algoritme:**
+
 Invoer: Een zoekprobleem P.
+
 Uitvoer:  Een sequentie van acties die een oplossing is van het zoekprobleem of error wanneer er geen oplossing werd gevonden.
 ```python
 1: function TREESEARCH(P)
