@@ -47,6 +47,7 @@ Uitvoer:  Een sequentie van acties die een oplossing is van het zoekprobleem of 
 ```
 
 **Implementatie van een plan**
+
 Zoals reeds gezegd stelt elke top van de zoekboom een sequentie van acties voor, maar het is **niet nodig** om in elke top het **volledige pad op te slaan**. Door gebruik te maken van het **vorige pad in combinatie met de laatste gekozen actie**, kan je zo het volledige plan opstellen. 
 
 Voor de implementatie gebruiken we een klasse **Plan** dat bestaat uit **vier velden**: 
