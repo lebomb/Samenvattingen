@@ -58,4 +58,9 @@ Voor de implementatie gebruiken we een klasse **Plan** dat bestaat uit **vier ve
 3. **Voorganger/ouder** van dit plan. Een referentie naar het plan waarvan dit plan is afgeleid door het toepassen van de huidige actie a.
 4. **Totale kost _g_** van dit plan.  Strikt genomen kunnen we deze kost ook berekenen door het volgen van de voorganger-referenties, maar deze berekening heeft echter een uitvoeringstijd die lineair is in het aantal acties van het plan.
 
+**Criteria voor Zoekalgoritmes**
+
+Zoekalgoritmes kunnen op verschillende manieren worden geëvalueerd, deze vier worden vaak gebruikt:
+1. 
+
 
