@@ -74,3 +74,6 @@ Zoekalgoritmes kunnen op verschillende manieren worden geëvalueerd, deze vier w
 * De **vertakkingsfactor _b_** geeft het maximaal aantal opvolgers van een top in de zoekboom.
 * Een **doeltop_d_** (= diepte van de meest ondiepe top waarvan de toestand een doeltoestand is).
 * De **maximale lengte _m_** is de maximale lengte (gemeten  als het aantal genomen acties) van een pad in de toestandsruimte.
+
+Eigenschap: Het aantal toppen in een zoekboom met vertakkingsfactor *b* en maximale diepte *m* wordt gegeven door:
+![alt text](http://users.hogent.be/~427143la/images/Eigenschap2-1.PNG "Eigenschap 2.1")
