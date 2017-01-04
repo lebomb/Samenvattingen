@@ -61,12 +61,16 @@ Voor de implementatie gebruiken we een klasse **Plan** dat bestaat uit **vier ve
 **Criteria voor Zoekalgoritmes**
 
 Zoekalgoritmes kunnen op verschillende manieren worden geëvalueerd, deze vier worden vaak gebruikt:
+
 1.  Een zoekalgoritme is **compleet** wanneer het algoritme, voor elk zoekprobleem met een oplissing, effectief een oplossing vindt.
+
 2. Een zoekalgoritme is **optimaal**, wanneer het niet enkel *een* oplossing vindt, maar steeds een optimale oplossing teruggeeft voor elk zoekprobleem met een oplossing.
+
 3. De **tijdscomplexiteit** van een zoekalgoritme bepaalt de uitvoeringstijd van het algoritme. We nemen aan dat de uitvoeringstijd evenredig is met het aantal gegenereerde toppen.
+
 4. De **ruimtecomplexiteit** van een zoekalgoritme bepaalt de hoeveelheid geheugen die het algoritme nodig heeft tijdens de uitvoering. Dit wordt meestal uitgedrukt als het maximaal aantal toestanden dat gelijktijdig moet worden bijgehouden.
 
 **Maten die gebruikt wordt om tijds- en ruimtecomplexiteit van zoekalgoritmes uit te drukken:**
 * De **vertakkingsfactor _b_** geeft het maximaal aantal opvolgers van een top in de zoekboom.
 * Een **doeltop_d_** (= diepte van de meest ondiepe top waarvan de toestand een doeltoestand is).
-* De **maximale lengte _m_** is de maximale lengte (gemeten  als het aantal genomen acties) van een pad in de toestandsruimte. 
+* De **maximale lengte _m_** is de maximale lengte (gemeten  als het aantal genomen acties) van een pad in de toestandsruimte.
