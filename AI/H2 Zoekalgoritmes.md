@@ -3,15 +3,15 @@
 ----
 
 ### Inleiding
-Een **zoekprobleem** bestaat uit volgende elementen: 
+Een **zoekprobleem** bestaat uit volgende elementen:
 * een **toestandsruimte S** die alle mogelijke toestanden bevat.
 * een **verzameling** van mogelijke **acties**
-* een **transitiemodel** dat zegt wat het effect is van het uitvoeren van een actie op een bepaalde toestand: 
+* een **transitiemodel** dat zegt wat het effect is van het uitvoeren van een actie op een bepaalde toestand:
 
         T : (S, A) →  S : (s,a)  ↦ s'
-    wanneer *s'* bereikt wordt door het uitvoeren van een actie *a* op een toestand *s* dan wordt *s'* een opvolger van *s* genoemd. (= Deterministische omgeving: wanneer *s* en *a* gekend zijn is er juist 1 opvolger: *s'*) 
+    wanneer *s'* bereikt wordt door het uitvoeren van een actie *a* op een toestand *s* dan wordt *s'* een opvolger van *s* genoemd. (= Deterministische omgeving: wanneer *s* en *a* gekend zijn is er juist 1 opvolger: *s'*)
     Hetuitvoeren van een actie op een bepaalde toestand heeft meestal een bepaalde **kost**:
-    
+
         C : (S, A) →  ℝ: (s,a)  ↦ c
 
 * Een **initiële toestand** *sO* ∈ S, dit is de toestand van waaruit het zoeken zal vertrekken
@@ -50,9 +50,9 @@ Uitvoer:  Een sequentie van acties die een oplossing is van het zoekprobleem of 
 
 **Implementatie van een plan**
 
-Zoals reeds gezegd stelt elke top van de zoekboom een sequentie van acties voor, maar het is **niet nodig** om in elke top het **volledige pad op te slaan**. Door gebruik te maken van het **vorige pad in combinatie met de laatste gekozen actie**, kan je zo het volledige plan opstellen. 
+Zoals reeds gezegd stelt elke top van de zoekboom een sequentie van acties voor, maar het is **niet nodig** om in elke top het **volledige pad op te slaan**. Door gebruik te maken van het **vorige pad in combinatie met de laatste gekozen actie**, kan je zo het volledige plan opstellen.
 
-Voor de implementatie gebruiken we een klasse **Plan** dat bestaat uit **vier velden**: 
+Voor de implementatie gebruiken we een klasse **Plan** dat bestaat uit **vier velden**:
 1. **Huidige toestand**
 2. **Laatst gekozen actie _a_**, deze is enkel leef voor het plan geassocieerd met de initiële toestand.
 3. **Voorganger/ouder** van dit plan. Een referentie naar het plan waarvan dit plan is afgeleid door het toepassen van de huidige actie a.
@@ -61,6 +61,12 @@ Voor de implementatie gebruiken we een klasse **Plan** dat bestaat uit **vier ve
 **Criteria voor Zoekalgoritmes**
 
 Zoekalgoritmes kunnen op verschillende manieren worden geëvalueerd, deze vier worden vaak gebruikt:
-1. 
+1.  Een zoekalgoritme is **compleet** wanneer het algoritme, voor elk zoekprobleem met een oplissing, effectief een oplossing vindt.
+2. Een zoekalgoritme is **optimaal**, wanneer het niet enkel *een* oplossing vindt, maar steeds een optimale oplossing teruggeeft voor elk zoekprobleem met een oplossing.
+3. De **tijdscomplexiteit** van een zoekalgoritme bepaalt de uitvoeringstijd van het algoritme. We nemen aan dat de uitvoeringstijd evenredig is met het aantal gegenereerde toppen.
+4. De **ruimtecomplexiteit** van een zoekalgoritme bepaalt de hoeveelheid geheugen die het algoritme nodig heeft tijdens de uitvoering. Dit wordt meestal uitgedrukt als het maximaal aantal toestanden dat gelijktijdig moet worden bijgehouden.
 
-
+**Maten die gebruikt wordt om tijds- en ruimtecomplexiteit van zoekalgoritmes uit te drukken:**
+* De **vertakkingsfactor _b_** geeft het maximaal aantal opvolgers van een top in de zoekboom.
+* Een **doeltop_d_** (= diepte van de meest ondiepe top waarvan de toestand een doeltoestand is).
+* De **maximale lengte _m_** is de maximale lengte (gemeten  als het aantal genomen acties) van een pad in de toestandsruimte. 
