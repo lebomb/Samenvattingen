@@ -92,4 +92,5 @@ De oplossing hiervoor is gebruik maken van een **gesloten lijst** in plaats van 
 > Bij graafgebaseerd zoeken wordt elke toestand **hoogstens 1 maal** geëxpandeerd. Wanneer een plan an de open lijst wordt gehaald dat een toestand bevat die reeds geëxpandeerd is, dan wordt deze niet opnieuw geëxpandeerd.
 
 **Algoritme**
+
 ![alt text](http://users.hogent.be/~427143la/images/AlgoritmeGraafgebaseerd.PNG "Algoritme 2.1")
