@@ -118,7 +118,7 @@ In *bepaalde gevallen* kan diepte eerst zoeken toch in een **oneindige lus** ger
 
 **Diepte eerst scoort wel goed op _benodigd geheugen_**, wanneer een bepaalde top geëxpandeerd wordt behoren enkel de broers van zijn voorouders tot de open lijst. (maximaal tijdscomplexiteit: *m* niveaus x *b* broers -> lineair  -> veel beter dan exponentieel van breedte eerst)
 
-### Iteratief verdiepen
+#### Iteratief verdiepen
  > Iteratief verdiepen is geen directe toepassing van het boomgebaseerd zoekalgoritme dat hier reeds gegeven werd. In essentie is het een lus rond diepte-eerst zoeken waarbij het zoekproces wordt afgebroken wanneer een bepaalde diepte bereikt wordt. (= **Diepte Gelimiteerd Zoeken**)
 
  Volgend algoritme geeft een implementatie voor diepte-gelimiteerd zoeken.
@@ -128,3 +128,35 @@ In *bepaalde gevallen* kan diepte eerst zoeken toch in een **oneindige lus** ger
 Het algoritme heeft een bijzondere returnwaarde 'hit boundary' om aan te geven dat er geen oplossing werd gevonden binnen de opgegeven dieptelimiet, maar dat er wel *eventueel* een oplossing gevonden kan worden wanneer de maximale toegelaten diepte wordt verhoogd.
 
 Dit gebeurt in volgend algoritme: **Iteratief Verdiepen**
+
+![alt text](http://users.hogent.be/~427143la/images/IteratiefVerdiepenAlgoritme2.PNG "Iteratief verdiepen")
+
+In tegen stelling tot wat je op eerste zicht zou denken, blijft de hoeveelheid extra werk beperkt. `Check Cursus 2.4`
+
+Iteratief verdiepen is een **compleet zoekalgoritme** en zal steeds de oplossing met het minste aantal acties vinden. Het algoritme is in het algemeen niet optimaal buiten het geval dat alle acties de zelfde kost hebben. Het algoritme heeft een **exponentiële tijdscomplexiteit** maar slechts een lineaire ruimtecomplexiteit.
+
+#### Uniforme Kost Zoeken
+> Uniforme Kost Zoeken tracht het probleem dat breedte eerst heeft wanneer acties een verschillende kost hebben op te lossen door *steeds het plan te expanderen waarvoor de totale kost van dit plan minimaal is*. De **open lijst** wordt hier m.a.w. geïmplementeerd aan de hand van een **prioriteitswachtrij,** een kleinere kost betekent een grotere prioriteit. (~ Algoritme van Dijkstra)
+
+Uniforme kost zoeken is (*wanneer alle acties een kost hebben die groter of gelijk aan één of andere positieve e is*)  een **compleet en optimaal algoritme**. De tijd- en ruimtecomplexiteit is *O(b^(1+C/e))*, waarbij *C* de kost van de optimale oplossing voorstelt.
+
+### Geïnformeerde Zoekmethoden
+> Geïnformeerde zoekmethoden gaan gebruik maken van een heuristiek om een goede indicator of schatting te hebben voor het zoekproces efficiënter te laten verlopen.
+
+#### Heuristieken
+Een heuristiek *h* is een afbeelding van de verzameling toestanden *S* naar de verzameling van niet-negatieve reële getallen R+, i.e.
+
+        *h: S -> R+ : s -> h(s)*
+
+
+#### Eigenschappen van Heuristieken
+De heuristiek *h*: *S -> R+*:
+* is **toelaatbaar** als voor elke toestand *s* geldt dat *h(s) <= C(S)* waarbij *C* de kost van een optimale oplossing voorstelt van *S* naar een doeltoestand.
+        * Wanneer *h* toelaatbaar is, dan is *h(g) = 0* voor elke doeltoestand *g*.
+* is **consistent** als voor elke doeltoestand *g* geldt dat *h(g) = 0* en als bovendien voor elke toestand *s* en elke actie *a* op *s* met *s' = T(s,a)* geldt dat:
+
+![alt text](http://users.hogent.be/~427143la/images/consistent.PNG "consistent")
+
+        bv. Wanneer we de heuristiek beschouwen als "in vogelvlucht op doel afgaan" dan is een heuristiekconsitent wanneer het steeds korter is om in vogelvlucht op doel af te geen ( -> *h(s)*) dan om eerst een actie te ondernemen adhv het transitiemodel (*c(s,a,s')*) en dan in vogelvluchtop doel af te gaan (*h(s'*).
+
+> Een *consistente heuristiek is altijd toelaatbaar*, maar dit wil niet zeggen dat elke toelaatbare heuristiek ook consistent is.
