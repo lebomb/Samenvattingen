@@ -94,3 +94,20 @@ De oplossing hiervoor is gebruik maken van een **gesloten lijst** in plaats van 
 #### Algoritme
 
 ![alt text](http://users.hogent.be/~427143la/images/AlgoritmeGraafgebaseerd.PNG "Algoritme 2.1")
+
+### Blinde Zoekmethoden
+> Blinde Zoekmethoden kunnen enkel gebruikmaken van de informatie die verschaft wordt door de definitie van het zoekprobleem. Ze beschikken niet over extra informatie die hen kan helpen bij het zoekproces. Volgende zoekmethoden worden besproken:
+
+#### Breedte Eerst Zoeken
+Bij breedte eerst zoeken wordt voor de open lijst een *wachtrij* gebruikt. Dit is een FIFO datastructuur. Bij breedte eerst zoeken wordt de zoekboom systematisch laag per laag opgebouwd, hierdoor zal het algoritme steeds een oplossing vinden voor elke zoekprobleem dat effctief een oplossing heeft. Dit betekent dat breedte eerst een **compleet zoekalgoritme** is. Het algoritme vindt steeds de meest ondiepe doeltop. (= *minimaal aantal acties*). Wanneer acties een *verschillende kost* hebben is dit dus *niet* noodzakelijk *de oplossing met de kleinste kost*, maar is dus wel optimaal wanneer elke actie dezelfde kost heeft.
+
+Breedte eerst zoeken is **exponentieel in de diepte van de meest ondiepe doeltop**. Het maximaalaantal toppen dat moet worden bijgehouden in de open lijst wordt bereikt wanneer men de doeltop expandeert. Op dit moment wordt zo goed als de volledige laag op diepte *d* + 1 bijgehouden in de open lijst.
+
+Bij **graafgebaseerd breedte eerst zoeken** kan men veel tijd winnen (tov boomgebaseerd) wanneer veel toestanden meerdere malen voorkomen in de zoekboom. Het extra geheugen dat men moet spenderen aan het bijhouden van de gesloten lijst weegt niet op tegen de tijdswinst die men kan maken. Om deze reden wordt **breedte eerst zoeken meestal uigevoerd in zijn graafgebaseerde versie**.
+
+`Moet nog afbeelding van boom komen`
+
+#### Diepte Eerst zoeken
+Diepte eerst zoeken lijkt in zekere zin op breedte eerst zoeken, maar hier gebruikt men een **LIFO** structuur voor het bijhouden van de **open lijst**. Deze stapel zorgt ervoor dat men zo snel mogelijk zo diep mogelijk in de boom afdaalt.
+
+Diepte eerst zoeken genereert steeds een **linkerdeel van de boom**. Wanneer *m* eindig is en de enige doeltop helemaal rechts onderaan in de boom zit, dan worden alle toppen van de boom gegenereerd. In het *slechtste geval* is de tijdscomplexiteit dus b^m. dit is dezelfde exponentiële tijdscomplexiteit als bij breedte eerst.
