@@ -20,7 +20,7 @@ Een **zoekprobleem** bestaat uit volgende elementen:
 De toestandsruimte *S* kan samen met de transitie- en kostfunctie gebruikt worden om een **toestandsruimtegraaf** *G* te maken. In deze graaf stellen knopen de toestanden voor en twee knopen zijn verbonden door een gerichte boog wanneer de ene knoop de opvolger is van de andere door het uitvoeren van een bepaalde actie. (kost boog = kost actie). **Elke toestand komt juist 1 keer voor.** (abstract concept: dergelijke graaf is veel te groot om bij te houden in het geheugen van een computer)
 
 ### Algemene Zoekalgoritmes
-**Boomgebaseerd zoeken**
+####Boomgebaseerd zoeken
 Het algemene algoritme houdt een lijst bij van mogelijke partiële oplossingen die nog verder uitgewerkt (geëxpandeerd) moeten worden (= **open lijst**). Bij de start van de uitvoering bestaat deze open lijst enkel uit het plan corresponderend met de initiële toestand van het zoekprobleem. Bij elke iteratie van het algoritme wordt een plan uitgekozen uit deze lijst (volgens 1 of andere strategie) en wanneer de eindtoestand van het gekozen plan voldoet aan de doeltest, stopt het algoritme. Wanneer dit niet het geval is dan worden de plannen voor alle opvolgers van de eidntoestand van het gekozen plan toegevoegd aan de open lijst, waardoor deze ook beschikbaar worden voor expansie. Wanneer de open lijst op een bepaald moment leeg is dan geeft het algoritme aan dat er geen oplossing werd gevonden.
 > Conceptueel bouwen we dus een **zoekboom** op, elke top van deze boom stelt een sequentie van acties voor. Het is dus de bedoeling zoekproblemen op te lossen met een zo klein mogelijke zoekboom. Elke top stelt dus een plan voor dat o.a. de huidige toestand bijhoudt, dezelfde toestand kan, en zal, in de het algemeen *meerdere malen* voorkomen in een zoekboom
 
@@ -77,3 +77,17 @@ Zoekalgoritmes kunnen op verschillende manieren worden geëvalueerd, deze vier w
 
 Eigenschap: Het aantal toppen in een zoekboom met vertakkingsfactor *b* en maximale diepte *m* wordt gegeven door:
 ![alt text](http://users.hogent.be/~427143la/images/Eigenschap2-1.PNG "Eigenschap 2.1")
+
+*Opmerking:* De laag met diepte *m* in een zoekboom met vertakkingsfactor *b* bevat *b^m* toppen, dit is meer dan alle voorgaande lagen samen. Die bevatten in totaal slechts:
+![alt text](http://users.hogent.be/~427143la/images/Eigenschap2-2.PNG "Opmerking 2.1")
+toppen.
+
+#### Graafgebaseerd zoeken
+Het grootste probleem van boomgebaseerd zoeken is dat dit algoritme **niet onthoudt waar het reeds geweest is**. Dit kan oneindige lussen veroorzaken, en in vele andere gevallen een grote hoeveelheid werk herhaaldelijk uitvoeren.
+
+De oplossing hiervoor is gebruik maken van een **gesloten lijst** in plaats van een open lijst. Deze lijst onthoudt welke toestanden reeds geëxpandeerd zijn. **Let op!** Een gesloten lijst houdt **toestanden** bij, geen plannen zoals een open lijst.
+
+> Bij graafgebaseerd zoeken wordt elke toestand **hoogstens 1 maal** geëxpandeerd. Wanneer een plan an de open lijst wordt gehaald dat een toestand bevat die reeds geëxpandeerd is, dan wordt deze niet opnieuw geëxpandeerd.
+
+**Algoritme**
+![alt text](http://users.hogent.be/~427143la/images/AlgoritmeGraafgebaseerd "Algoritme 2.1")
