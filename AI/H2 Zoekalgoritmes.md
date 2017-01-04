@@ -105,9 +105,26 @@ Breedte eerst zoeken is **exponentieel in de diepte van de meest ondiepe doeltop
 
 Bij **graafgebaseerd breedte eerst zoeken** kan men veel tijd winnen (tov boomgebaseerd) wanneer veel toestanden meerdere malen voorkomen in de zoekboom. Het extra geheugen dat men moet spenderen aan het bijhouden van de gesloten lijst weegt niet op tegen de tijdswinst die men kan maken. Om deze reden wordt **breedte eerst zoeken meestal uigevoerd in zijn graafgebaseerde versie**.
 
-`Moet nog afbeelding van boom komen`
+![alt text](http://users.hogent.be/~427143la/images/BreedteEerstZoeken.PNG "Breedte Eerst Zoeken")
 
 #### Diepte Eerst zoeken
 Diepte eerst zoeken lijkt in zekere zin op breedte eerst zoeken, maar hier gebruikt men een **LIFO** structuur voor het bijhouden van de **open lijst**. Deze stapel zorgt ervoor dat men zo snel mogelijk zo diep mogelijk in de boom afdaalt.
 
 Diepte eerst zoeken genereert steeds een **linkerdeel van de boom**. Wanneer *m* eindig is en de enige doeltop helemaal rechts onderaan in de boom zit, dan worden alle toppen van de boom gegenereerd. In het *slechtste geval* is de tijdscomplexiteit dus b^m. dit is dezelfde exponentiële tijdscomplexiteit als bij breedte eerst.
+
+![alt text](http://users.hogent.be/~427143la/images/DiepteEerstZoeken.PNG "Diepte Eerst Zoeken")
+
+In *bepaalde gevallen* kan diepte eerst zoeken toch in een **oneindige lus** geraken. Dus **diepte eerst zoeken is niet-compleet** en bijgevolg **niet optimaal**. Zelfs wanneer diepte eerst een oplossing vindt is deze niet gegarandeerd de optimale oplossing. (Meest linkse top kan dieper zijn dan een rechter doeltop).
+
+**Diepte eerst scoort wel goed op _benodigd geheugen_**, wanneer een bepaalde top geëxpandeerd wordt behoren enkel de broers van zijn voorouders tot de open lijst. (maximaal tijdscomplexiteit: *m* niveaus x *b* broers -> lineair  -> veel beter dan exponentieel van breedte eerst)
+
+### Iteratief verdiepen
+ > Iteratief verdiepen is geen directe toepassing van het boomgebaseerd zoekalgoritme dat hier reeds gegeven werd. In essentie is het een lus rond diepte-eerst zoeken waarbij het zoekproces wordt afgebroken wanneer een bepaalde diepte bereikt wordt. (= **Diepte Gelimiteerd Zoeken**)
+
+ Volgend algoritme geeft een implementatie voor diepte-gelimiteerd zoeken.
+
+![alt text](http://users.hogent.be/~427143la/images/IteratiefVerdiepenAlgoritme.PNG "Iteratief verdiepen")
+
+Het algoritme heeft een bijzondere returnwaarde 'hit boundary' om aan te geven dat er geen oplossing werd gevonden binnen de opgegeven dieptelimiet, maar dat er wel *eventueel* een oplossing gevonden kan worden wanneer de maximale toegelaten diepte wordt verhoogd.
+
+Dit gebeurt in volgend algoritme: **Iteratief Verdiepen**
