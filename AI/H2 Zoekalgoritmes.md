@@ -79,7 +79,9 @@ Eigenschap: Het aantal toppen in een zoekboom met vertakkingsfactor *b* en maxim
 ![alt text](http://users.hogent.be/~427143la/images/Eigenschap2-1.PNG "Eigenschap 2.1")
 
 *Opmerking:* De laag met diepte *m* in een zoekboom met vertakkingsfactor *b* bevat *b^m* toppen, dit is meer dan alle voorgaande lagen samen. Die bevatten in totaal slechts:
+
 ![alt text](http://users.hogent.be/~427143la/images/Eigenschap2-2.PNG "Opmerking 2.1")
+
 toppen.
 
 #### Graafgebaseerd zoeken
@@ -90,4 +92,4 @@ De oplossing hiervoor is gebruik maken van een **gesloten lijst** in plaats van 
 > Bij graafgebaseerd zoeken wordt elke toestand **hoogstens 1 maal** geëxpandeerd. Wanneer een plan an de open lijst wordt gehaald dat een toestand bevat die reeds geëxpandeerd is, dan wordt deze niet opnieuw geëxpandeerd.
 
 **Algoritme**
-![alt text](http://users.hogent.be/~427143la/images/AlgoritmeGraafgebaseerd "Algoritme 2.1")
+![alt text](http://users.hogent.be/~427143la/images/AlgoritmeGraafgebaseerd.PNG "Algoritme 2.1")
