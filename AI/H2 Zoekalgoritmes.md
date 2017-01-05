@@ -99,7 +99,7 @@ De oplossing hiervoor is gebruik maken van een **gesloten lijst** in plaats van 
 > Blinde Zoekmethoden kunnen enkel gebruikmaken van de informatie die verschaft wordt door de definitie van het zoekprobleem. Ze beschikken niet over extra informatie die hen kan helpen bij het zoekproces. Volgende zoekmethoden worden besproken:
 
 #### Breedte Eerst Zoeken
-Bij breedte eerst zoeken wordt voor de open lijst een *wachtrij* gebruikt. Dit is een FIFO datastructuur. Bij breedte eerst zoeken wordt de zoekboom systematisch laag per laag opgebouwd, hierdoor zal het algoritme steeds een oplossing vinden voor elke zoekprobleem dat effctief een oplossing heeft. Dit betekent dat breedte eerst een **compleet zoekalgoritme** is. Het algoritme vindt steeds de meest ondiepe doeltop. (= *minimaal aantal acties*). Wanneer acties een *verschillende kost* hebben is dit dus *niet* noodzakelijk *de oplossing met de kleinste kost*, maar is dus wel optimaal wanneer elke actie dezelfde kost heeft.
+> Bij breedte eerst zoeken wordt voor de open lijst een *wachtrij* gebruikt. Dit is een FIFO datastructuur. Bij breedte eerst zoeken wordt de zoekboom systematisch laag per laag opgebouwd, hierdoor zal het algoritme steeds een oplossing vinden voor elke zoekprobleem dat effctief een oplossing heeft. Dit betekent dat breedte eerst een **compleet zoekalgoritme** is. Het algoritme vindt steeds de meest ondiepe doeltop. (= *minimaal aantal acties*). Wanneer acties een *verschillende kost* hebben is dit dus *niet* noodzakelijk *de oplossing met de kleinste kost*, maar is dus wel optimaal wanneer elke actie dezelfde kost heeft.
 
 Breedte eerst zoeken is **exponentieel in de diepte van de meest ondiepe doeltop**. Het maximaalaantal toppen dat moet worden bijgehouden in de open lijst wordt bereikt wanneer men de doeltop expandeert. Op dit moment wordt zo goed als de volledige laag op diepte *d* + 1 bijgehouden in de open lijst.
 
@@ -108,7 +108,7 @@ Bij **graafgebaseerd breedte eerst zoeken** kan men veel tijd winnen (tov boomge
 ![alt text](http://users.hogent.be/~427143la/images/BreedteEerstZoeken.PNG "Breedte Eerst Zoeken")
 
 #### Diepte Eerst zoeken
-Diepte eerst zoeken lijkt in zekere zin op breedte eerst zoeken, maar hier gebruikt men een **LIFO** structuur voor het bijhouden van de **open lijst**. Deze stapel zorgt ervoor dat men zo snel mogelijk zo diep mogelijk in de boom afdaalt.
+> Diepte eerst zoeken lijkt in zekere zin op breedte eerst zoeken, maar hier gebruikt men een **LIFO** structuur voor het bijhouden van de **open lijst**. Deze stapel zorgt ervoor dat men zo snel mogelijk zo diep mogelijk in de boom afdaalt.
 
 Diepte eerst zoeken genereert steeds een **linkerdeel van de boom**. Wanneer *m* eindig is en de enige doeltop helemaal rechts onderaan in de boom zit, dan worden alle toppen van de boom gegenereerd. In het *slechtste geval* is de tijdscomplexiteit dus b^m. dit is dezelfde exponentiële tijdscomplexiteit als bij breedte eerst.
 
@@ -160,3 +160,24 @@ De heuristiek *h*: *S -> R+*:
         bv. Wanneer we de heuristiek beschouwen als "in vogelvlucht op doel afgaan" dan is een heuristiekconsitent wanneer het steeds korter is om in vogelvlucht op doel af te geen ( -> *h(s)*) dan om eerst een actie te ondernemen adhv het transitiemodel (*c(s,a,s')*) en dan in vogelvluchtop doel af te gaan (*h(s'*).
 
 > Een *consistente heuristiek is altijd toelaatbaar*, maar dit wil niet zeggen dat elke toelaatbare heuristiek ook consistent is.
+
+#### Gulzig Beste Eerst
+> Gulzig Beste Eerst maakt gebruik van een heuristiek *h*, deze kiest steeds de top met de kleinste waarde van *h* als de volgende top die wordt geëxpandeerd. De **open lijst** wordt dus net als bij uniforme kost zoeken, geïmplementeerd als een **prioriteitswachtrij** en een kleinere waarde voor *h* betekent een grotere prioriteit.
+
+Boomgebaseerd Gulzig Beste Eerst zoeken is **niet compleet**, zelfs niet met een consistente heuristiek. (Graafgebaseerd in een eindige toestandsruimte, zal het uiteraard wel altijd een oplossing vinden)
+
+De tijd- en ruimtecomplexiteit zijn in het slechtste geval van de orde *b^m* (= **exponentieel**), maar kan door gebruik van een goede heuristiek sterk teruggedrongen worden.
+
+#### A* Zoekalgoritme
+> De *open lijst* wordt nog steeds geïmplementeerd als een **prioriteitswachtrij**, maar de volgende top die wordt geëxpandeerd is de top (plan) *n* waarvoor  **_f(n) = g(n) + h(n)_** minimaal is. Hierbij is *g(n)* de totale kost van het plan *n* en is *h(n)* de waarde van de heuristiek voor de toestand die hoort bij deze top.
+
+Het gebruik van een *toelaatbare heuristiek* is voldoende om optimaliteit te garanderen wanneer men A* gebruikt in zijn boomgebaseerde versie (op voorwaarde dat alle acties een strikt positieve kost hebben). = **A* geeft steeds de meest optimale oplossing bij gebruik van een toelaatbare heuristiek**
+
+Dit is **niet het geval bij graafgebaseerd zoeken**! Graafgebaseerd zoeken heeft een **consistente heuristiek** nodig om te garanderen dat A* compleet en optimaal is.
+
+### Ontwerpen van Heuristieken
+Het is duidelijk dat een goede heuristiek een grote positieve invloed heeft op de tijds- en ruimtecomplexiteit van een algoritme (zoals A*). We bekijken 2 manieren om een goede heuristiek te ontwerpen:
+
+1. **Gebruik van Vereenvoudigde Problemen:** men gaat een heuristiek op stellen van het probleem, waarbij je de bestaande hindernissen negeert. Zo kan je bij een doolhof de muren wegdenken en vervolgens een heuristiek maken op basis van de manhattan afstand, hetzelde gaat bij de 8x8 puzzel waar dan de andere stukken weggedacht worden.
+
+2.  **Patroon Databanken:** men gaat het probleem opdelen in deelproblemen om deze vervolgens op te slaan in een databank gelinkt met de oplossingskost voor elk deelprobleem. Het aanleggen van deze databank kan verveenvoudigd worden (omdat de acties omkeerbaar zijn) door graafgebaseerde breedte-eerst uit te voeren, startend vanaf het doelpatroon, en bij te houden wat de afstand is vanaf het doelpatroon dat gebruikt werd als initiële toestand. bv. 8x8 puzzel waarbij men het probleem gaat delen in 2, enkel de 1-4 wordt gebruikt, 5-8 worden sterretjes. Het kan ook omgekeerd, of zelf in combinatie (= dit geeft een betere heuristiek en is nog steeds aanvaardbaar.).
