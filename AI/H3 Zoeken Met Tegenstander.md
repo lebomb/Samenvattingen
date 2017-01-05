@@ -39,7 +39,8 @@ De MINIMAX WAARDE van een toestand wordt dus als volgt bepaald:
 
 > Uiteraard beschouwen we in de toestand *s* enkel die acties *a* die zinvol kunnen uitgevoerd worden op de toestand *s*.
 
-Eens de Minimax waarde van een toestand is bepaald is het eenvoudig om de gepaste actie voor Max te selecteren. *Men kiest eenvoudigweg die __ actie waarvoor het maximum wordt bereikt.__* . Die noemt men dan de **Minimax Beslissing**.
+Eens de Minimax waarde van een toestand is bepaald is het eenvoudig om de gepaste actie voor Max te selecteren. *Men kiest eenvoudigweg die* **__actie waarvoor het maximum wordt bereikt.__** .
+Die noemt men dan de **Minimax Beslissing**.
 
 
 
