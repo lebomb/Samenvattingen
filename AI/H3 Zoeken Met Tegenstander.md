@@ -49,16 +49,19 @@ Die noemt men dan de **Minimax Beslissing**, dit is dus de beste beslissing wann
 ![alt text](http://users.hogent.be/~427143la/images/MinimaxAlgoritme.PNG "Minimax Algoritme")
 
 We berekenen de minimax waarde van toestand a. We vinden:
+
         minimax(a) = max(minimax(b), minimax(c), minimax(d))
-                            = max(min(12, 3, 8), min(1, 5, 7), min(14, 5, 1))
-                            = max(3, 1, 1)
-                            = 3.
+                   = max(min(12, 3, 8), min(1, 5, 7), min(14, 5, 1))
+                   = max(3, 1, 1)
+                   = 3.
+                   
 Veronderstel nu dat de laatste twee opvolgers van toestand *c* onbepaalde
 waarden *x* en *y* hebben. In dit geval vinden we voor de minimax waarde van *a*:
+
         minimax(a) = max(minimax(b), minimax(c), minimax(d))
-                            = max(min(12, 3, 8), min(1, x, y), min(14, 5, 1))
-                            = max(3, z, 1)                                      (met z ≤ 1)
-                            = 3
+                   = max(min(12, 3, 8), min(1, x, y), min(14, 5, 1))
+                   = max(3, z, 1)                                      (met z ≤ 1)
+                   = 3
 
 Dus wat *x* en *y* ook zijn, de minimaxwaarde van *a* blijft 3.
 
