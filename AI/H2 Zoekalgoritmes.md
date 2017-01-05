@@ -157,7 +157,7 @@ De heuristiek *h*: *S -> R+*:
 
 ![alt text](http://users.hogent.be/~427143la/images/consistent.PNG "consistent")
 
-        bv. Wanneer we de heuristiek beschouwen als "in vogelvlucht op doel afgaan" dan is een heuristiekconsitent wanneer het steeds korter is om in vogelvlucht op doel af te geen ( -> *h(s)*) dan om eerst een actie te ondernemen adhv het transitiemodel (*c(s,a,s')*) en dan in vogelvluchtop doel af te gaan (*h(s'*).
+bv. Wanneer we de heuristiek beschouwen als "in vogelvlucht op doel afgaan" dan is een heuristiekconsitent wanneer het steeds korter is om in vogelvlucht op doel af te geen ( -> *h(s)*) dan om eerst een actie te ondernemen adhv het transitiemodel (*c(s,a,s')*) en dan in vogelvluchtop doel af te gaan (*h(s'*).
 
 > Een *consistente heuristiek is altijd toelaatbaar*, maar dit wil niet zeggen dat elke toelaatbare heuristiek ook consistent is.
 
