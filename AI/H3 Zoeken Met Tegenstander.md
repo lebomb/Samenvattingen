@@ -22,6 +22,26 @@ De waarden die worden geschreven bij deze blaadjes corresponderen met de opbreng
 
 De spelboom is vooral een theoretisch concept, want voor realistische spellen is deze veel te groot om volledig op te bouwen en op te slaan in het geheugen.
 
+bv. Tic Tac Toe:
+
+![alt text](http://users.hogent.be/~427143la/images/TicTacToe.PNG "TicTacToeBoom")
+
+Speler Max is als eerste aan de beurt en wil uiteraard die actie selecteren die
+zijn opbrengst zo groot mogelijk zal maken. Wanneer het spel gedaan zou
+zijn na één zet dan zou Max eenvoudigweg de waarde van de opbrengstfunctie
+in de eindtoestanden kunnen gebruiken. Echter, Min is ook nog in
+het spel en Max weet dat Min er alles aan gaat doen om de opbrengst voor
+Max te minimaliseren, terwijl Max ook weet dat Min weet dat Max de opbrengst
+voor zichzelf wil maximaliseren. We zien hier dus een recursief proces.
+De MINIMAX WAARDE van een toestand wordt dus als volgt bepaald:
+
+![alt text](http://users.hogent.be/~427143la/images/MiniMax.PNG "Minimax")
+
+> Uiteraard beschouwen we in de toestand *s* enkel die acties *a* die zinvol kunnen uitgevoerd worden op de toestand *s*.
+
+Eens de Minimax waarde van een toestand is bepaald is het eenvoudig om de gepaste actie voor Max te selecteren. *Men kiest eenvoudigweg die __ actie waarvoor het maximum wordt bereikt.__* . Die noemt men dan de **Minimax Beslissing**.
+
+
 
 ### Snoeien van Spelbomen
 
