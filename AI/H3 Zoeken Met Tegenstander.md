@@ -39,12 +39,33 @@ De MINIMAX WAARDE van een toestand wordt dus als volgt bepaald:
 
 > Uiteraard beschouwen we in de toestand *s* enkel die acties *a* die zinvol kunnen uitgevoerd worden op de toestand *s*.
 
-Eens de Minimax waarde van een toestand is bepaald is het eenvoudig om de gepaste actie voor Max te selecteren. *Men kiest eenvoudigweg die* **__actie waarvoor het maximum wordt bereikt.__** .
-Die noemt men dan de **Minimax Beslissing**.
+Eens de Minimax waarde van een toestand is bepaald is het eenvoudig om de gepaste actie voor Max te selecteren. *Men kiest eenvoudigweg die* **_actie waarvoor het maximum wordt bereikt._**
+
+Die noemt men dan de **Minimax Beslissing**, dit is dus de beste beslissing wanneer er gespeeld wordt tegen een tegenstander die ook optimaal speelt. Een andere beslissing dan de minimax beslissing, kan en zal door een optimaal spelende tegenstader uitgebuit worden om ervoor te zorgen dat zijn eigen opbrengst zal stijgen, of gelijk blijven.
+
+#### Minimax Algoritme
+`Voor toelichting check cursus Algoritme 3.1`
+
+![alt text](http://users.hogent.be/~427143la/images/MinimaxAlgoritme.PNG "Minimax Algoritme")
+
+We berekenen de minimax waarde van toestand a. We vinden:
+        minimax(a) = max(minimax(b), minimax(c), minimax(d))
+                            = max(min(12, 3, 8), min(1, 5, 7), min(14, 5, 1))
+                            = max(3, 1, 1)
+                            = 3.
+Veronderstel nu dat de laatste twee opvolgers van toestand *c* onbepaalde
+waarden *x* en *y* hebben. In dit geval vinden we voor de minimax waarde van *a*:
+        minimax(a) = max(minimax(b), minimax(c), minimax(d))
+                            = max(min(12, 3, 8), min(1, x, y), min(14, 5, 1))
+                            = max(3, z, 1)                                      (met z ≤ 1)
+                            = 3
+
+Dus wat *x* en *y* ook zijn, de minimaxwaarde van *a* blijft 3.
 
 
 
 ### Snoeien van Spelbomen
+Bij een spelboom is *niet elke waarde relevant* voor het eindresultaat:
 
 
 ### Praktische Uitwerking
