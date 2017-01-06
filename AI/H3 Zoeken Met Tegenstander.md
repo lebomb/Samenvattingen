@@ -71,8 +71,27 @@ Dus wat *x* en *y* ook zijn, de minimaxwaarde van *a* blijft 3, merk op dat het 
 
 > Het **niet evalueren van een tak** in een spelboom wordt het **snoeien** (Eng: pruning) van die tak genoemd.
 
-De parameter *a* (alfa) houdt de waarde bij van de beste keuze (hoogste waarde)
+We wensen nu het minimax algoritme aan te passen om te kunnen snoeien waar mogelijk. Het minimax algoritme is een diepte eerst algoritme, dus op elk moment bekijken we 1 enkel pad in de spelboom. Het resulterende algoritme wordt **_a-b_snoeien** genoemd naar de 2 extra parameters die worden bijgehouden tov het minimax algoritme.
+
+
+1. De **parameter _a_** (alfa) houdt de **waarde bij van de beste keuze** *(hoogste waarde)* op het huidige pad voor **Max**.
+2. De **parameter _b_** (beta) houdt de **waarde bij van de beste keuze** (laagste waarde) op het huidige pad voor **Min**.
+
+
+Max wijzigt de *a*-waarde en Min de *B*-waarden. Op elk moment heeft de top in de spelboom een **huidige waarde *v***; 
+Deze waarde **stijgt voor Max en daalt voor Min**. 
+
+Er kan gesnoeid worden als aan 1 van volgende voorwaarde voldaan is: 
+
+* **Min** merkt dat de **huidige waarde** *v* **kleiner of gelijk aan _a_** is. Een rationele Max zal immers het spel nooit hier laten komen aangezien hij op het huidig pad reeds een betere keuze heeft.
+* **Max** merkt dat de **huidig waarde** *v* **groter of gelijk aan _B_** is. Een rationele Min zal immers het spel nooit hier laten komen aangezien hij op het huidig pad reeds een betere keuze heeft. 
 
 
 
 ### Praktische Uitwerking
+
+
+
+
+
+
