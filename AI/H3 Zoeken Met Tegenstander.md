@@ -48,6 +48,10 @@ Die noemt men dan de **Minimax Beslissing**, dit is dus de beste beslissing wann
 
 ![alt text](http://users.hogent.be/~427143la/images/MinimaxAlgoritme.PNG "Minimax Algoritme")
 
+
+### Snoeien van Spelbomen
+Bij een spelboom is *niet elke waarde relevant* voor het eindresultaat:
+
 We berekenen de minimax waarde van toestand a. We vinden:
         minimax(a) = max(minimax(b), minimax(c), minimax(d))
                             = max(min(12, 3, 8), min(1, 5, 7), min(14, 5, 1))
@@ -60,12 +64,12 @@ waarden *x* en *y* hebben. In dit geval vinden we voor de minimax waarde van *a*
                             = max(3, z, 1)                                      (met z ≤ 1)
                             = 3
 
-Dus wat *x* en *y* ook zijn, de minimaxwaarde van *a* blijft 3.
+Dus wat *x* en *y* ook zijn, de minimaxwaarde van *a* blijft 3, merk op dat het niets uitmaakt dat de laatste twee opvolgers van *c* eindtoestanden zijn. De redenering gaat ook op als *x* en *y* het gevolg zijn van een spel met duizenden mogelijke zetten, in dit geval kan er dus veel tijd bespaard worden door deze takken van de spelboom niet te evalueren.
 
+> Het **niet evalueren van een tak** in een spelboom wordt het **snoeien** (Eng: pruning) van die tak genoemd.
 
+De parameter *a* (alfa) houdt de waarde bij van de beste keuze (hoogste waarde)
 
-### Snoeien van Spelbomen
-Bij een spelboom is *niet elke waarde relevant* voor het eindresultaat:
 
 
 ### Praktische Uitwerking
