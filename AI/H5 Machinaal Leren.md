@@ -23,3 +23,26 @@
 
 
 ### Evaluatie van Hypothesen voor Gesuperviseerd Leren.
+#### Foutmaten
+Om gemakkelijk verschillende hypothesen te vergelijken gebruikt men vaak een *numerieke maat* voor de fout over een verzameling van voorbeelden. Kleinere numerieke waarden duiden (meestal) op betere hypothesen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
