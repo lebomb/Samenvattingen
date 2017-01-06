@@ -40,6 +40,7 @@ Voor een **Binair Classificatieprobleem**, waar er een zeer scheve verdeling is 
   * bv: Veronderstel dat men een hypothese heeft opgezet om te voorspellen of iemand een kwaadaardige kanker (y=1) heeft ofniet (y=0). Stel dat de foutratio over een bepaalde verzameling patiënten gelijk is aan 1%, of anders gezegd, we krijgen de juiste diagnose in 99% vande gevallen. Op het eerste zicht lijkt deze hypothese het echt goed te doen.Echter, als je weet dat er slechts een half procent van de patiënten in de dataset effectief kanker heeft dan heeft een triviaal algoritme dat steeds y=0 voorspelt, zonder naar de attributen te kijken, een foutratio van slechts een half procent! Het is duidelijk dat in zo’n geval de foutratio niet geschiktis.
 
 We bekijken nu eventjes de vier verschillende uitkomsten die kunnen voor-komen bij een binair classificatieprobleem:
+
 / | y = 1 | y = 0
 --- | --- | ---
 h(*x*)=1 | correct (*a*) | vals positief (*b*)
