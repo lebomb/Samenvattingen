@@ -40,20 +40,23 @@ Voor een **Binair Classificatieprobleem**, waar er een zeer scheve verdeling is 
   * bv: Veronderstel dat men een hypothese heeft opgezet om te voorspellen of iemand een kwaadaardige kanker (y=1) heeft ofniet (y=0). Stel dat de foutratio over een bepaalde verzameling patiënten gelijk is aan 1%, of anders gezegd, we krijgen de juiste diagnose in 99% vande gevallen. Op het eerste zicht lijkt deze hypothese het echt goed te doen.Echter, als je weet dat er slechts een half procent van de patiënten in de dataset effectief kanker heeft dan heeft een triviaal algoritme dat steeds y=0 voorspelt, zonder naar de attributen te kijken, een foutratio van slechts een half procent! Het is duidelijk dat in zo’n geval de foutratio niet geschiktis.
 
 We bekijken nu eventjes de vier verschillende uitkomsten die kunnen voor-komen bij een binair classificatieprobleem:
-| y = 1 | y = 0
+/ | y = 1 | y = 0
 --- | --- | ---
 h(*x*)=1 | correct (*a*) | vals positief (*b*)
 h(*x*)=0 | vals negatief (*c*) | correct (*d*)
 
 De **Precisie** zegt welk percentage van de voorbeelden die voorspeld waren als positief, ook effectief positief waren:
+
  ![alt text](http://users.hogent.be/~427143la/images/Form3.JPG "Formule")
 
 De **Rappel** (Eng: recall) zegt welk percentage van de positieve voorbeelden ook effectief als positief werd gelabeld door de hypothese:
- ![alt text](http://users.hogent.be/~427143la/images/Form4.JPG "Formule")
+
+![alt text](http://users.hogent.be/~427143la/images/Form4.JPG "Formule")
 
 **Een algoritme dat alle voorbeelden het correcte label geeft, heeft steeds een  precisie en rappel die allebei gelijk zijn aan 1.** Een algoritme dat steeds *h(x)=1* voorspelt heeft een rappel die gelijk is aan 1 (want alle positieve voorbeelden werden als positief voorspeld), maar de precisie is in dit geval slechts gelijk aan het percentage positieve voorbeelden in de dataset. Om de precisie te verhogen is het dus nodig om ook het label *0* te gaan voorspellen, maar dan loop je uiteraard het risico dat de rappel daalt.
 
 Het is vaak interessant om de performantie van een hypothese te kunnen uitdrukken als één enkel getal. De precisie en de rappel kunnen gecombineerd worden in één enkele score, de **_F_ -score**:
+
  ![alt text](http://users.hogent.be/~427143la/images/Form5.JPG "Formule")
 
  > In dit geval zijn **grotere waarden** voor precisie, rappel en de F-score beter dan kleinere waarden.
