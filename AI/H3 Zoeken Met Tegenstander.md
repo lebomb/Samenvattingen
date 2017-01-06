@@ -71,7 +71,7 @@ Dus wat *x* en *y* ook zijn, de minimaxwaarde van *a* blijft 3, merk op dat het 
 
 > Het **niet evalueren van een tak** in een spelboom wordt het **snoeien** (Eng: pruning) van die tak genoemd.
 
-We wensen nu het minimax algoritme aan te passen om te kunnen snoeien waar mogelijk. Het minimax algoritme is een diepte eerst algoritme, dus op elk moment bekijken we 1 enkel pad in de spelboom. Het resulterende algoritme wordt **_a-b_snoeien** genoemd naar de 2 extra parameters die worden bijgehouden tov het minimax algoritme.
+We wensen nu het minimax algoritme aan te passen om te kunnen snoeien waar mogelijk. Het minimax algoritme is een diepte eerst algoritme, dus op elk moment bekijken we 1 enkel pad in de spelboom. Het resulterende algoritme wordt **_a_ - _B_ snoeien** genoemd naar de 2 extra parameters die worden bijgehouden tov het minimax algoritme.
 
 
 1. De **parameter _a_** (alfa) houdt de **waarde bij van de beste keuze** *(hoogste waarde)* op het huidige pad voor **Max**.
@@ -86,9 +86,35 @@ Er kan gesnoeid worden als aan 1 van volgende voorwaarde voldaan is:
 * **Min** merkt dat de **huidige waarde** *v* **kleiner of gelijk aan _a_** is. Een rationele Max zal immers het spel nooit hier laten komen aangezien hij op het huidig pad reeds een betere keuze heeft.
 * **Max** merkt dat de **huidig waarde** *v* **groter of gelijk aan _B_** is. Een rationele Min zal immers het spel nooit hier laten komen aangezien hij op het huidig pad reeds een betere keuze heeft. 
 
+**Algoritme: Berekenen van de Minimax beslissing mbv _a_ - _B_ snoeien.**
+
+![alt text](http://users.hogent.be/~427143la/images/ABSnoeienAlgoritme.JPG "AB Snoeien")
+
+`Beschrijving uitwerking algoritme check cursus Voorbeeld 3.10 en verder.`
+
 
 
 ### Praktische Uitwerking
+
+In veel spelbomen komt dezelfde toestand meerdere malen voor, dit leidt tot veel extra werk. Een oplossing bestaat erin om de toestanden, en hun minimax waarde, bij te houden in een hashtabel analoog aan de gesloten lijst bij graafgebaseerd zoeken. 
+
+Deze hashtabel wordt in de context van spelbomen de **transpositie tabel** genoemd. Het bijhouden van deze lijst kan een grote tijdswinst betekenen. Als het aantal toestanden te groot is, dan is het natuurlijk onmogelijk om alle toestanden bij te houden, maar er bestaan strategieën om te beslissen welke er wel bijgehouden worden. 
+
+In de praktijk stelt men een limiet in op de diepte (= het aantal halve zetten) van de boom. Wanneer die diepte wordt bereikt voordat een eindtoestand wordt bereikt, dan gebruikt men een **heuristische evaluatiefunctie** om de waarde van die toestand te benaderen.
+
+We krijgen dan volgende **recursieve formule** om deze **heuristische minimax waarde** te berekenen voor maximale diepte *d*: 
+
+![alt text](http://users.hogent.be/~427143la/images/RecForHeur.JPG "Recursieve Formule Heuristische Minimax")
+
+Om te voorkomen dat deze *heuristische evaluatiefunctie* het algoritme ongewenst in de richting van slechte posities stuurt, moet deze voldoen aan volgende **eigenschappen.**
+
+Een **goede heuristische evaluatiefunctie**: 
+* Ordent eindtoestanden op dezelfde manier als de opbrengst functie *U*: de toestanden met winst moeten beter geëvalueerd worden dan de toestanden waarin er verloren wordt.
+* Kan snel berekend worden, aangezien het de bedoeling is tijd te winnen.
+* de waarde voor niet-eindtoestanden moet sterk gecorelleerd zijn met de kans om effectief te winnen vanuit die toestand.
+
+`Voorbeeld evaluatiefunctie en spelboom uitgewerkt in cursus Voorbeeld 3.11`
+
 
 
 
