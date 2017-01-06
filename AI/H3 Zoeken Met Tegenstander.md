@@ -53,16 +53,19 @@ Die noemt men dan de **Minimax Beslissing**, dit is dus de beste beslissing wann
 Bij een spelboom is *niet elke waarde relevant* voor het eindresultaat:
 
 We berekenen de minimax waarde van toestand a. We vinden:
+
         minimax(a) = max(minimax(b), minimax(c), minimax(d))
-                            = max(min(12, 3, 8), min(1, 5, 7), min(14, 5, 1))
-                            = max(3, 1, 1)
-                            = 3.
+                   = max(min(12, 3, 8), min(1, 5, 7), min(14, 5, 1))
+                   = max(3, 1, 1)
+                   = 3.
+                   
 Veronderstel nu dat de laatste twee opvolgers van toestand *c* onbepaalde
 waarden *x* en *y* hebben. In dit geval vinden we voor de minimax waarde van *a*:
+
         minimax(a) = max(minimax(b), minimax(c), minimax(d))
-                            = max(min(12, 3, 8), min(1, x, y), min(14, 5, 1))
-                            = max(3, z, 1)                                      (met z ≤ 1)
-                            = 3
+                   = max(min(12, 3, 8), min(1, x, y), min(14, 5, 1))
+                   = max(3, z, 1)                                      (met z ≤ 1)
+                   = 3
 
 Dus wat *x* en *y* ook zijn, de minimaxwaarde van *a* blijft 3, merk op dat het niets uitmaakt dat de laatste twee opvolgers van *c* eindtoestanden zijn. De redenering gaat ook op als *x* en *y* het gevolg zijn van een spel met duizenden mogelijke zetten, in dit geval kan er dus veel tijd bespaard worden door deze takken van de spelboom niet te evalueren.
 
