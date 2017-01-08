@@ -37,7 +37,7 @@ Tenslotte moet de procesanalist natuurlijk de nodige **modelleerskills** zoals:
 
 ### Elicitatietechnieken
 
-[Overzicht Elicitatietechnieken](users.hogent.be/~427143la/images/Elicitatietechnieken.PNG "Overzicht Elicitatietechnieken")
+![Overzicht Elicitatietechnieken](http://users.hogent.be/~427143la/images/Elicitatietechnieken.PNG "Overzicht Elicitatietechnieken")
 
 
 ## Deel II: Wat is een proces? + Waarom BPM?
