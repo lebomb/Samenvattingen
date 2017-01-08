@@ -3,7 +3,7 @@
 ---
 
 ## Deel I: Processen en requirements ontdekken
-### Proessen ontdekken
+### Processen ontdekken
 Opzetten project = samen stellen van **het team**?
 
 Vooraleer men het ontdekte proces gaat omzetten in een schema is het belangrijk om voldoende **informatie te verzamelen**. Het bekomen van een **goed begrip** van het **proces** is noodzakelijk, ook zal er gebruik moeten gemaakt worden van **elicitatietechnieken**
