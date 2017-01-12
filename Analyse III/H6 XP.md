@@ -41,3 +41,39 @@ Aan software ontwikkeling zijn verschillende risico's verbonden, XP belooft deze
 | Business changes | Door de korte releases kan er snel ingespeeld worden op verandering (Flexibiliteit) |
 | False Feature Rich | Enkel opdrachten met hoge prioriteit uitvoeren, belangrijke taken dus eerst |
 | Staff Turnover | Vragen programmeurs verantwoordelijkheid op te nemen (motivatie en duidelijkheid) |
+
+### Hoe?
+Vooraleer er gestart wordt aan de ontwikkeling wordt er een plan gemaakt (**planning game**)  waar de business en technische mensen in dialoog gaan.
+        * Business: Scope, prioriteit, inhoud releases, datum releases...
+        * Technische: Schattingen, gevolgen, proces, gedetailleerde planning...
+
+-> Ruw plan met korte releases waarbij de gebruiker deel is van het team.
+
+`Staat ganse lijst van het wellens en wee van XP, maar gewoon eens bekijken, allemaal logisch waarom da zo is, ze staan hieronder zonder uitleg.`
+
+Hoe?
+* Planning
+
+* Short releases
+
+* Metafoor
+
+* Eenvoudig ontwerp
+
+* Testen
+
+* Refactoring
+
+* Pair programming
+
+* Collective ownership
+
+* Permanente integratie
+
+* 40 uren week
+
+* On-site gebruiker
+
+* Standaarden
+
+![Overzicht Elicitatietechnieken](http://users.hogent.be/~427143la/images/XPSchema.PNG "XP")
