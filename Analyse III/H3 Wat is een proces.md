@@ -31,7 +31,7 @@ Afbeelding proces
 Input in een proces is in het algemeen output van andere processen.
 Processen in een organisatie worden in het algemeen gepland en uitgevoerd onder beheerste omstandigheden om waarde toe te voegen.
 
-### 2. BPM (Waarom? Hoe?)
+### BPM (Waarom? Hoe?)
 
 #### Waarom?
 
@@ -41,7 +41,6 @@ Om je proces **beter** te doen (minder fouten)
 
 Afbeelding slide 14
 
-### BPM (Waarom? Hoe?)
 > Quote van Bill over 1e regel automation: toevoegen aan efficient proces maakt efficienter -> inefficient proces maakt inefficienter
 
 **Continuous Process Improvement (CPI)** stelt de huidige processtructuur niet in vraag. Identificeert problemen en lost ze één voor één op. Stap voor stap.
@@ -62,7 +61,7 @@ Door het proces te gaan aanpassen en optimaliseren heeft Ford 75% minder persone
 
 **Automatiseer de dingen die alleen nodig zijn**. 
 
-### 3. Verklaring van enkele begrippen
+### Verklaring van enkele begrippen
 
 **input**: iets dat transformeerd, verbruikt, verwerkt wordt (klantenvraag, te behandelen dossier, ...) 
 
@@ -72,7 +71,7 @@ Door het proces te gaan aanpassen en optimaliseren heeft Ford 75% minder persone
 
 **middelen**: personen, systemen, tools, uitrusting, activa, ... die **gebruikt** worden tijdens het proces; worden dus niet verwerkt of verbruikt. (kopierapparaat, kantoor, IT-pakket, dossierbehandelaar, ...)
 
-### 4. End-to-End
+### End-to-End
 
 Proces begint bij de behoefte van externe klant of afnemer. Het is dus de **klant of afnemer die het proces triggert**. Het proces eindigt bij dezelfde klant/afnemer wanneer de **trigger volledig beantwoord¨** is en het proces **één of meerdere outputs** heeft opgeleverd.
 
