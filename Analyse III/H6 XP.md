@@ -77,3 +77,7 @@ Hoe?
 * Standaarden
 
 ![Overzicht Elicitatietechnieken](http://users.hogent.be/~427143la/images/XPSchema.PNG "XP")
+
+### Randvoorwaarden XP:
+**Ondersteuning van het management** voor gemeenschappelijke werkplaats en pairing stations.
+**XP Team** van 4-12 **team** spelers (even aantal) bestaande uit: product manager, on-site customers, testers, programmeurs met sterke design-skills.
