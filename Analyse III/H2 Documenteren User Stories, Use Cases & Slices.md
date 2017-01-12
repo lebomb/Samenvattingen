@@ -69,35 +69,60 @@ Een goede user story focust op 6 elementen: (INVEST)
 
 Een story map is een voorstelling van de user stories volgens prioriteit (hoog , laag, verticale as) en functionaliteit (van links naar rechts, horizontale as)
 
-/* afbeeldingen proces mapping toevoegen */
-**MOET IK NOG VERDER UITWERKEN**
+afbeeldingen proces mapping toevoegen 
+
+Het proces om tot een story map te komen bestaat uit een aantal stappen. Voor de start is het belangijk dat we op de hoogte zijn van het **eco system**. Je moet dus de weten wie de stakeholders zijn en wat de omgeving in. Om te starten moet men eerst beslissen in wat men wil investeren. Dit gebeurt in de **prepare** fase. Eens dit gebeurt is zullen werknemers samen met de klant een story map creëren. Dit is de **co-create** fase. Merk op dat dit slechts enkel een klad is van de story draft en deze nog niet compleet is. Vervolgens wordt de story map gecontroleerd op volledigheid: **verify** fase. De laatste fase is **prioritize**. Hierin worden de taken in de story map geprioriteerd en de MVP en MLP (zie verder) worden gedefinieerd. Uiteindelijk wordt er ook naar de haalhaarheid van de oplossing gekeken.
 
 ##### Eco system
 Zorg dat je de omgeving en stakeholders verstaat
-Maak een lijst van aangeboden diensten en producten die aan eisen van klant voldoen
-Creatie van Stakeholder Map en voeg de dimensiewaarde toe en maak een waarde netwerkmap aan
-Verdeel je gebruikers en beschrijf hun Presonas
-Beschrijf hun ervaring dmv Customer Journey Maps
+1. Maak een lijst van aangeboden diensten en producten die aan de eisen van klant voldoen
+2. Creatie van Stakeholder Map en voeg de dimensiewaarde toe en maak een waarde netwerkmap aan
+3. Verdeel je gebruikers en beschrijf hun Presonas
+4. Beschrijf hun ervaring dmv Customer Journey Maps
+
+Afbeelding customer journey map
 
 ##### Prepare
-Beslis wat te onderzoeken: bestaande of nieuwe producen
-Onderzoek de Customer Journey Maps en zoek naar kansen of bedreigingen
-beschrijf je hypothese: Because... We might... Which will lead to ...
-Indentificeer de mogelijkheden die nodig zijn om oplossing te ontwikkelen/af te leveren
+1. Beslis wat te onderzoeken: bestaande of nieuwe producten
+2. Onderzoek de Customer Journey Maps en zoek naar kansen of bedreigingen
+3. Beschrijf je hypothese: 
+    ``` 
+    Because... 
+    We might... 
+    Which will lead to ...
+    ```
+4. Indentificeer de mogelijkheden die nodig zijn om oplossing te ontwikkelen/af te leveren
 
 ##### Co-Create
 Identificeer de requirements op verschillende levels: front & back stage
-Creatie van een Story map
+Creër de story map:
+
+    1. Lijst de user stories op
+    2. Bepaal de nodige taken (skelet)
+    3. Bepaal backbone 
+    
+Afbeelding slide 27
+
+Maak op basis van de user stories een **Business Information model**
 
 ##### Verify
+De story map wordt gecontroleerd op volledigheid. 
 
+Afbeelding slide 32
 
 ##### Prioritize
-Geef priotiteiten aan de story map die de visie van de business reflecteert: Minimal Viable Product/Service
-Voeg de visie van de klant toe: Minimal Lovable Product/Service
-Daag de uitvoerbaarheid uit van de oplossing, visualiseer de verandingsimpact
-Definieer implemenatie scenario's: creatie van een RoadMap(Proof of Concept, beta,
+1. Geef priotiteiten aan de story map die de visie van de business reflecteert: **Minimal Viable Product/Service**
+2. Voeg de visie van de klant toe: **Minimal Lovable Product/Service**
+3. Daag de uitvoerbaarheid uit van de oplossing, visualiseer de verandingsimpact
+4. Definieer implemenatie scenario's: creatie van een **Roadmap** (Proof of Concept, beta,
 alpha,basic, full-featured)
+
+**Minimal Viable Product (MVP)** is een vroege, uitgeklede versie van een product, waarmee bepaald wordt of dat product rendabel is. Een MVP komt met zo min mogelijk moeite tot stand, om zoveel mogelijk te leren van gebruikers.
+
+**Most Lovable Product (MLP)**: er wordt geluisterd naar de behoeften van de klant om ervoor te zorgen dat de klant het product ook effectief wil kopen. Er worden functionaliteiten toegevoegd die de klant wil.
+
+
+Afbeelding slide 34
 
 #### Beheren Risico's
 **Table stakes**: Functionaliteiten die nodig zijn om op de markt de kunnen gaan
@@ -106,7 +131,7 @@ alpha,basic, full-featured)
 te winnen
 **Probe**: Een vooruitstekende functie om gebruikshypothese te valideren
 
-/* voorbeeld storymap toevoegen */
+Voorbeeld storymap toevoegen, slide  39
 
 ## Use Cases 2.0 (Use case slices)
 
@@ -123,7 +148,10 @@ Use case 2.0 is **lichtgewicht, schaalbaar, veelzijdig en gemakkelijk te gebruik
 
 Een **use-case slice** is de selectie van een of meer verhalen uit een use case om een  werkpakket te vormen dat een duidelijke toegevoegde waarde heeft voor een klant.
 
-/* Hier komen afbeeldingen */
+Afbeelding slide 42
+
+
+Afbeelding slide 44
 De figuur laat de incrementele ontwikkeling van een systeem zien. Het eerste increment bevat maar één slice: de eerste slice van use case 1. Het tweede increment voegt een andere slice van use case 1 toe en de eerste slice van use case 2. Meer slices worden toegevoegd om zo het derde en vierde increment te vormen. Het vierde increment wordt compleet en bruikbaar genoeg geacht om te worden uitgeleverd.
 
 ### Stappenplan
@@ -136,3 +164,5 @@ De figuur laat de incrementele ontwikkeling van een systeem zien. Het eerste inc
 - **test het systeem** (voor een **slice**)
 - **test het systeem in zijn geheel**
 - **inspecteer en wijzig de use cases**
+
+Afbeelding slide 46
