@@ -1,15 +1,11 @@
 # Analyse III
-## Business Process Management
----
-
-# Analyse III
 ## Wat is een proces?
 ---
 
 ## Deel II: Wat is een proces? Waarom BPM?
 
-### Situering: 
-Ieder systeem wordt ontwikkeld om een bepaalde reden: 
+### Situering:
+Ieder systeem wordt ontwikkeld om een bepaalde reden:
         * Beter procesbeheer
         * Lagere kosten
         * Beter benutten van commerciële mogelijkheden
@@ -19,10 +15,10 @@ Ieder systeem wordt ontwikkeld om een bepaalde reden:
 
 > **BPM** is gericht op de bedrijfsorganisatie en is meestal het voortraject van een IT-project.
 
-> **Business Analyse** vertrekt van resultaat BPM-oefening, is gericht op het IT project zelf. Tijdens Business Analyse blijkt vaak nood aan procesoptimalisatie. 
+> **Business Analyse** vertrekt van resultaat BPM-oefening, is gericht op het IT project zelf. Tijdens Business Analyse blijkt vaak nood aan procesoptimalisatie.
 
 ### Definitie van een proces
-Veel definities maar komt er op neer dat: 
+Veel definities maar komt er op neer dat:
 **Een proces** is een verzameling activiteiten die input transformeert in output, waarbij er een meerwaarde gecreëerd wordt voor de belanghebbenden en hun verwachtingen realiseert (doel).
 
 Afbeelding proces
@@ -59,13 +55,13 @@ afbeelding
 
 Door het proces te gaan aanpassen en optimaliseren heeft Ford 75% minder personeel nodig om het aankoopproces af te handelen. De materiaalcontrole is eenvoudiger en de financiële controler accurater. De aankopen werden veel sneller afgehandeld er waren mindere laattijdige betalingen.
 
-**Automatiseer de dingen die alleen nodig zijn**. 
+**Automatiseer de dingen die alleen nodig zijn**.
 
 ### Verklaring van enkele begrippen
 
-**input**: iets dat transformeerd, verbruikt, verwerkt wordt (klantenvraag, te behandelen dossier, ...) 
+**input**: iets dat transformeerd, verbruikt, verwerkt wordt (klantenvraag, te behandelen dossier, ...)
 
-**output**: iets dat geproduceerd wordt. (attest, antwoord, behandeld dossier, ...) 
+**output**: iets dat geproduceerd wordt. (attest, antwoord, behandeld dossier, ...)
 
 **beheersing/besturing**: hoe en wanneer een proces/activiteit plaatsvindt; wordt niet verwerkt of verbruikt (een instructie, richtlijn, doelstelling, ...)
 
@@ -102,18 +98,18 @@ Processen lopen vaak fout bij  transfer tussen
     - Kosten vs baten van het resultaat afwegen
     - 1e stap (in bpm): **identificeren van de 'waarde creërende stromen**'
 2. **Operationele dimensie**
-    Processen binnen deze dimensie zijn gericht op **efficiëntie** (de dingen goed doen) 
+    Processen binnen deze dimensie zijn gericht op **efficiëntie** (de dingen goed doen)
 
 
-Het creëren van waarde gebeurt via processen. Niet alle processen binnen een organisatie zijn gericht op het creëren van waarde want niet alle processen zijn evenwaardig. Vaak zullen er stappen zijn zonder toegevoegde warde. Het is dus belangrijk om **eerst de processen te identificeren die gericht zijn op het creëren van waarde**. 
+Het creëren van waarde gebeurt via processen. Niet alle processen binnen een organisatie zijn gericht op het creëren van waarde want niet alle processen zijn evenwaardig. Vaak zullen er stappen zijn zonder toegevoegde warde. Het is dus belangrijk om **eerst de processen te identificeren die gericht zijn op het creëren van waarde**.
 
 Hiervoor gaat men na:
     - Welke processen vindt men in de organisatie (primaire, ondersteunende of sturende)?
-    - Welke factoren (kritische succesfactoren) leveren een significante bijdrage tot het succes van de organisatie? 
+    - Welke factoren (kritische succesfactoren) leveren een significante bijdrage tot het succes van de organisatie?
     - Welke processen zijn hierbij essentieel?
     - Hoe performant zijn de essentiële processen nu?
-    
-**Waarde creërende processen** zijn meestal **primaire processen**. Ze zijn gelinkt aan de kerncompetenties van de organisatie en zijn van kritisch belang. Ook andere processen kunnen bijdragen tot strategische doelstellingen. Deze processen beantwoorden aan **behoefte van belanghebbenden**. Ze moeten **een doel** hebben, centraal staan en moeten een **meerwaarde** bieden. 
+
+**Waarde creërende processen** zijn meestal **primaire processen**. Ze zijn gelinkt aan de kerncompetenties van de organisatie en zijn van kritisch belang. Ook andere processen kunnen bijdragen tot strategische doelstellingen. Deze processen beantwoorden aan **behoefte van belanghebbenden**. Ze moeten **een doel** hebben, centraal staan en moeten een **meerwaarde** bieden.
 
 ##### 3 clusters van processen
 
@@ -128,17 +124,17 @@ Hiervoor gaat men na:
     - productie
     - dagelijkse operaties
     - sales & marketing
-    
+
     bijv. van order-intake tot facturatie, van product-idee tot product-lancering
-   
+
 3. **Ondersteunende processen (support business processen)**
      Processen die de primaire processen ondersteunen
     - ICT (bij ICT-bedrijf is dit de core!)
     - boekhouding (bij boekhoudkantoor is dit core!)
     - HR-afdeling
     bijv. aanwerving van een nieuw personeelslid
-    
-            
+
+
 
 
 
@@ -149,4 +145,3 @@ Hiervoor gaat men na:
 | De aanwerving van nieuwe medewerkers in een call center | &nbsp; | &nbsp; | x |
 | Organisatie van de bachelorproef aan een hogeschool | &nbsp; | x | &nbsp; |
 | Agile project management | x | &nbsp; | &nbsp; |
-
