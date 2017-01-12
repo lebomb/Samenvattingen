@@ -31,7 +31,7 @@ Sofie?
 Aan software ontwikkeling zijn verschillende risico's verbonden, XP belooft deze op te lossen. oa:
 
  | Risico's | Oplossing/Belofte XP |
- | : ------ |  :------ |
+ | ------ | ------------- |
  | Schedule slips | Korte release cyclus van 1 tot 4 weken (itereren met  |klant), waarbij taken 1 tot 3 man-dagen duren |
  | Project canceled | Belangrijke zaken eerst, klant vragen naar de kleinste release met het grootste zakenaandeel |
  | System goes sour | Voorzien van een batterij testen die bij elke wijziging worden uitgevoerd |
