@@ -145,3 +145,66 @@ Hiervoor gaat men na:
 | De aanwerving van nieuwe medewerkers in een call center | &nbsp; | &nbsp; | x |
 | Organisatie van de bachelorproef aan een hogeschool | &nbsp; | x | &nbsp; |
 | Agile project management | x | &nbsp; | &nbsp; |
+
+
+
+##### Problemen bij processen:
+
+- Functioneel georganiseerde organisaties:
+    een functie/afdeling is verticaal terwijl een proces  horizontaal is.
+- Dalende doeltreffendheid door groei
+    Groei leidt tot specialisatie: men wordt efficiënter op een bepaald domein maar men verliest het einddoel, de klant, uit het oog
+- Gewoontevorming
+    Men stelt niet meer in vraag wat men doet en hoe men het doet
+
+##### Vericale functionele "kachelpijpen"
+
+Elke kachelpijp stelt een **specifieke functie of dienst** voor: IT, marketing, financien, HR, ...
+Dit komt voor in **hierarchische, gecentraliseerde organisaties** waar de **expertise** wordt **gedeeld** over **gans het bedrijf**. Er zijn **duidelijke carrière-paden en opleidingsprogramma's** en voor elke functies bestaan er **backups**. De managers zijn **vertrouwd** met het werk van hun ondergeschikten en **standaarden** kunnen gemakkelijk gehanteerd worden.
+
+###### NADELEN
+
+- Een **eenheid op zich**
+- **Focus** op de individuele dienstverlening (bv.: IT) i.p.v. op de dienstverlening aan de klant
+- Processen zijn gericht op efficiëntie (de dingen juist doen), niet op effectiviteit (de juiste dingen doen voor de organisatie)
+- **Communicatieproblemen** (eigen jargon)
+- Business prioriteiten kunnen **afwijken** van de functionele prioriteiten
+- Opgeleverde projecten **voldoen niet aan de noden** van de business units
+
+##### Horizontale process-tunels
+
+Komt voor in **gedecentraliseerde** organisaties. Er worden units gecreëerd om te focussen op een **bepaald business domein**. De prioriteiten zijn gebasseerd op de noodzaak van producten en processen. Het personeel is op de hoogte van diverse aspecten van de producten en processen en de **communicatie** tussen de diesnten is **veel beter**.
+
+###### NADELEN
+
+- De perceptie: opwaartse carierepaden beperkt
+- **Jobevaluaties** gebeuren vaak door leidinggevenden die de job zelf niet kennen
+- Vaak **weinig backup-personeel**
+- **Weinig synergie in het gedrag**: iedere business unit werkt op zijn eigen manier, wat kan leiden tot redundantie en inefficiëntie
+
+### 5. Starten met procesverbetering
+
+#### "Kritische" of sleutelprocessen
+Sleutelprocessen staan in functie van **de strategie van een organisatie**. Ze dragen bij tot het **voldoen aan de behoeften van de belanghebbenden** en zijn de sleutel tot het **success of continuïteit van de organisatie**. Deze processen worden bepaald op basis van **kritische successfactoren**.
+
+Een mogelijk vertrekpunt is een **SWOT-analyse**.
+
+De **sterktes** van een onderneming zijn de zaken waarmee ze zich onderscheiden. Bijv. kritische succesfactoren, kerncompetenties, technologische capaciteiten, merk, R&D, productontwikkeling, kost- en prijsstructuur, verkoop- & distributiekanalen, ...
+
+Om de **zwaktes** van een organistatie te identificeren gaat men bestaande business- en IT-problemen observeren. Bijv. verkeerde skills van msen, omslachtige procedures, logge, hiërarschische structuur, ...
+
+Voorbeelden van succesfactoren:
+- verbeteren van de kostenstructuur
+- groei
+- versterken van imago
+- verhogen van de klanttevredenehid
+- verhogen van de marketingsinspanningen
+- verhogen van de competentie van het personeel
+- verbeteren van de interne communicatie
+
+|  | Verhogen klanttevredenheid | Versterken competenties | Verhogen marktaandeel | Verminderen voorraad | Verbeteren van ... |
+| ---- | :--: | :--: | :--: | :--: | :--: |
+| Ontwikkelen van producten / diensten | x | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Opleiden van personeel | &nbsp; | x | &nbsp; | &nbsp; | &nbsp; |
+| Promotie | &nbsp; | &nbsp; | x | &nbsp; | &nbsp; |
+| Leveren van producten / diensten | x | &nbsp; | &nbsp; | x | &nbsp; |
