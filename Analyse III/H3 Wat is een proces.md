@@ -2,31 +2,28 @@
 ## Business Process Management
 ---
 
-Ieder systeem wordt ontwikkeld om een bepaalde reden
-    - Beter procesbeheer
-    - Lagere kosten
-    - Beter benutten van commerciële mogelijkheden
-    - Verhogen van de servicegraad
+# Analyse III
+## Wat is een proces?
+---
 
-Deze eisen moeten vooraf helder en éénduidig geformuleerd worden in de **business case**
+## Deel II: Wat is een proces? Waarom BPM?
 
-### Business Process Management vs Business Analyse
+### Situering: 
+Ieder systeem wordt ontwikkeld om een bepaalde reden: 
+        * Beter procesbeheer
+        * Lagere kosten
+        * Beter benutten van commerciële mogelijkheden
+        * Verhogen van de servicegraad
 
-#### BPM
+> **Business Case** = vooraf eisen helder en ééduidig formuleren
 
-- Gericht op bedrijfsorganisatie
-- Meestal voortraject van IT-project
+> **BPM** is gericht op de bedrijfsorganisatie en is meestal het voortraject van een IT-project.
 
-#### Business Analyse
-
-- Vertrekt van resultaat BPM-oefening
-- Gericht op IT-project
-- Tijdens Business Analyse blijkt vaak nood aan procesoptimalisatie
-
-## Wat is een proces? Waarom BPM?
+> **Business Analyse** vertrekt van resultaat BPM-oefening, is gericht op het IT project zelf. Tijdens Business Analyse blijkt vaak nood aan procesoptimalisatie. 
 
 ### Definitie van een proces
-Een proces is een opeenvolging van activiteiten die **waarde voor een afnemer of klant (= belanghebbende) creërt** door **input naar output te transformeren**. Een proces realiseert de doelen die door stand gekomen zijn door de verwachtingen ven de afnemers of belanghebbenden.
+Veel definities maar komt er op neer dat: 
+**Een proces** is een verzameling activiteiten die input transformeert in output, waarbij er een meerwaarde gecreëerd wordt voor de belanghebbenden en hun verwachtingen realiseert (doel).
 
 Afbeelding proces
 
@@ -44,7 +41,9 @@ Om je proces **beter** te doen (minder fouten)
 
 Afbeelding slide 14
 
-#### Hoe?
+### BPM (Waarom? Hoe?)
+> Quote van Bill over 1e regel automation: toevoegen aan efficient proces maakt efficienter -> inefficient proces maakt inefficienter
+
 **Continuous Process Improvement (CPI)** stelt de huidige processtructuur niet in vraag. Identificeert problemen en lost ze één voor één op. Stap voor stap.
 
 **Business Process Re-Engineering (BPR)** stelt de fundamentele veronderstellingen en principes van de huidige processtructuur in vraag. Het is gericht op het realiseren van een doorbraak, bijv. door dure taken zonder directe toegevoegde warade te elimineren.
