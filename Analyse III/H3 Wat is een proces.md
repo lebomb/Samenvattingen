@@ -38,9 +38,9 @@ Processen in een organisatie worden in het algemeen gepland en uitgevoerd onder 
 
 #### Waarom?
 
-- Om je proces **goedkoper** te doen (kostenreductie)
-- Om je proces **sneller** te doen (kortere doorlooptijden)
-- Om je proces **beter** te doen (minder fouten)
+Om je proces **goedkoper** te doen (kostenreductie)
+Om je proces **sneller** te doen (kortere doorlooptijden)
+Om je proces **beter** te doen (minder fouten)
 
 Afbeelding slide 14
 
@@ -54,9 +54,9 @@ Ford moet zijn aankoopproces herzien want de doorlooptijden voor het verwerken v
 
 Automatisatie zou een verbetering van 20% beteken maar toch heeft Ford beslist om dit niet te doen. De reden hiervoor was dat Mazda dit proces veel sneller kon afhandelen met minder mensen. Ford heeft dus beslist om te kijken hoe het proces momenteel in elkaar zit en nagegaan waar dit effeciënter kan.
 
-> - "Hoe zit een proces in elkaar" momenteel -> **AS-IS**
+> "Hoe zit een proces in elkaar" momenteel -> **AS-IS**
 afbeelding
-> - Reengineering Process -> **TO-BE**
+> Reengineering Process -> **TO-BE**
 afbeelding
 
 Door het proces te gaan aanpassen en optimaliseren heeft Ford 75% minder personeel nodig om het aankoopproces af te handelen. De materiaalcontrole is eenvoudiger en de financiële controler accurater. De aankopen werden veel sneller afgehandeld er waren mindere laattijdige betalingen.
@@ -66,8 +66,11 @@ Door het proces te gaan aanpassen en optimaliseren heeft Ford 75% minder persone
 ### 3. Verklaring van enkele begrippen
 
 **input**: iets dat transformeerd, verbruikt, verwerkt wordt (klantenvraag, te behandelen dossier, ...) 
+
 **output**: iets dat geproduceerd wordt. (attest, antwoord, behandeld dossier, ...) 
+
 **beheersing/besturing**: hoe en wanneer een proces/activiteit plaatsvindt; wordt niet verwerkt of verbruikt (een instructie, richtlijn, doelstelling, ...)
+
 **middelen**: personen, systemen, tools, uitrusting, activa, ... die **gebruikt** worden tijdens het proces; worden dus niet verwerkt of verbruikt. (kopierapparaat, kantoor, IT-pakket, dossierbehandelaar, ...)
 
 ### 4. End-to-End
