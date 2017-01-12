@@ -33,7 +33,7 @@ Zodat <voordeel>
 
 ### User stories schrijven
 
-Een goede user story focust op 6 elementen: (INVEST)
+Een goede user story focust op 6 elementen: **(INVEST)**
 - Independent (Onafhankelijk)
 - Negotiable (Onderhandelbaar)
 - Valuable (Waardevol voor gebruiker en opdrachtgever)
@@ -69,7 +69,7 @@ Een goede user story focust op 6 elementen: (INVEST)
 
 Een story map is een voorstelling van de user stories volgens prioriteit (hoog , laag, verticale as) en functionaliteit (van links naar rechts, horizontale as)
 
-afbeeldingen proces mapping toevoegen 
+![](http://users.hogent.be/~427149sd/images/analyse/proces_mapping.PNG)
 
 Het proces om tot een story map te komen bestaat uit een aantal stappen. Voor de start is het belangijk dat we op de hoogte zijn van het **eco system**. Je moet dus de weten wie de stakeholders zijn en wat de omgeving in. Om te starten moet men eerst beslissen in wat men wil investeren. Dit gebeurt in de **prepare** fase. Eens dit gebeurt is zullen werknemers samen met de klant een story map creëren. Dit is de **co-create** fase. Merk op dat dit slechts enkel een klad is van de story draft en deze nog niet compleet is. Vervolgens wordt de story map gecontroleerd op volledigheid: **verify** fase. De laatste fase is **prioritize**. Hierin worden de taken in de story map geprioriteerd en de MVP en MLP (zie verder) worden gedefinieerd. Uiteindelijk wordt er ook naar de haalhaarheid van de oplossing gekeken.
 
@@ -80,7 +80,7 @@ Zorg dat je de omgeving en stakeholders verstaat
 3. Verdeel je gebruikers en beschrijf hun Presonas
 4. Beschrijf hun ervaring dmv Customer Journey Maps
 
-Afbeelding customer journey map
+![](http://users.hogent.be/~427149sd/images/analyse/customer_journey.PNG)
 
 ##### Prepare
 1. Beslis wat te onderzoeken: bestaande of nieuwe producten
@@ -95,20 +95,33 @@ Afbeelding customer journey map
 
 ##### Co-Create
 Identificeer de requirements op verschillende levels: front & back stage
+**front**
+```
+As a <role>
+I want to <goal/desire>
+So that <benefit>
+```
+**back (aanvaardingsvoorwaarden)**
+```
+Given <context>
+when <action>
+then <expected outcome>
+```
 Creër de story map:
 
     1. Lijst de user stories op
     2. Bepaal de nodige taken (skelet)
     3. Bepaal backbone 
     
-Afbeelding slide 27
+![](http://users.hogent.be/~427149sd/images/analyse/co-create_storymap.png)
 
 Maak op basis van de user stories een **Business Information model**
+![](http://users.hogent.be/~427149sd/images/analyse/co-create_BusinessInformationModel.png)
 
 ##### Verify
 De story map wordt gecontroleerd op volledigheid. 
 
-Afbeelding slide 32
+![](http://users.hogent.be/~427149sd/images/analyse/verify.PNG)
 
 ##### Prioritize
 1. Geef priotiteiten aan de story map die de visie van de business reflecteert: **Minimal Viable Product/Service**
@@ -122,7 +135,7 @@ alpha,basic, full-featured)
 **Most Lovable Product (MLP)**: er wordt geluisterd naar de behoeften van de klant om ervoor te zorgen dat de klant het product ook effectief wil kopen. Er worden functionaliteiten toegevoegd die de klant wil.
 
 
-Afbeelding slide 34
+![](http://users.hogent.be/~427149sd/images/analyse/prioritize.PNG)
 
 #### Beheren Risico's
 **Table stakes**: Functionaliteiten die nodig zijn om op de markt de kunnen gaan
@@ -131,7 +144,7 @@ Afbeelding slide 34
 te winnen
 **Probe**: Een vooruitstekende functie om gebruikshypothese te valideren
 
-Voorbeeld storymap toevoegen, slide  39
+![](http://users.hogent.be/~427149sd/images/analyse/storymap.png)
 
 ## Use Cases 2.0 (Use case slices)
 
@@ -148,10 +161,10 @@ Use case 2.0 is **lichtgewicht, schaalbaar, veelzijdig en gemakkelijk te gebruik
 
 Een **use-case slice** is de selectie van een of meer verhalen uit een use case om een  werkpakket te vormen dat een duidelijke toegevoegde waarde heeft voor een klant.
 
-Afbeelding slide 42
+![](http://users.hogent.be/~427149sd/images/analyse/UC2_stories.png)
 
 
-Afbeelding slide 44
+![](http://users.hogent.be/~427149sd/images/analyse/44.png)
 De figuur laat de incrementele ontwikkeling van een systeem zien. Het eerste increment bevat maar één slice: de eerste slice van use case 1. Het tweede increment voegt een andere slice van use case 1 toe en de eerste slice van use case 2. Meer slices worden toegevoegd om zo het derde en vierde increment te vormen. Het vierde increment wordt compleet en bruikbaar genoeg geacht om te worden uitgeleverd.
 
 ### Stappenplan
@@ -165,4 +178,4 @@ De figuur laat de incrementele ontwikkeling van een systeem zien. Het eerste inc
 - **test het systeem in zijn geheel**
 - **inspecteer en wijzig de use cases**
 
-Afbeelding slide 46
+![](http://users.hogent.be/~427149sd/images/analyse/46.png)
