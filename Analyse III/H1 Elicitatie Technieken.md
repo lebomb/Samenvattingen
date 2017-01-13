@@ -95,9 +95,12 @@ Tenslotte moet de procesanalist natuurlijk de nodige **modelleerskills** zoals:
 ### Techniekkeuze
 Elke techniek heeft voor- en nadelen, er is een **combinatie van technieken** nodig. Houd bij de keuze rekening met volgende aspecten:
 
-        * Menselijke: communicatieve en pers. vaardigheden van stakeholder, mensen hebben eigen ervaring met bepaalde technieken, de mate waarin stakeholders zich bewust zijn van requirements.
-        * Organisatorische: **beschikbaarheid** belanghebbenden, beschikbaar **budget en doorlooptijd**, creatieve technieken zijn minder gangbaar bij fixed-price/fixed-date projecten. Kies bij vervanging van bestaand systeem voor documentatiegebaseerde technieken.
-        * Vakinhoudelijke aspecten: vereiste detailniveau beïnvloedt de keuze + ervaring analist met bepaalde technieken.
+    
+* Menselijke: communicatieve en pers. vaardigheden van stakeholder, mensen hebben eigen ervaring met bepaalde technieken, de mate waarin stakeholders zich bewust zijn van requirements.
+   
+* Organisatorische: **beschikbaarheid** belanghebbenden, beschikbaar **budget en doorlooptijd**, creatieve technieken zijn minder gangbaar bij fixed-price/fixed-date projecten. Kies bij vervanging van bestaand systeem voor documentatiegebaseerde technieken.
+
+* Vakinhoudelijke aspecten: vereiste detailniveau beïnvloedt de keuze + ervaring analist met bepaalde technieken.
 
 ### Invloed van de bedrijfscultuur:
 * **Open cultuur:** alle medewerkers worden aangemoedigd om hun ideeën en kritiek te uiten. ( -> workshop)
