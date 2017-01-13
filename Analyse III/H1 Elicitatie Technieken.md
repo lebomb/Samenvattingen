@@ -13,8 +13,11 @@ Bij het begeleiden van de **modelleertaak** gaat men het **procesmodel** creëer
 Om de kwaliteit te verzekeren (**kwaliteitsborging**) moeten de **procesmodellen beantwoorden** aan de vooropgestelde **kwaliteitscriteria**. Men moet **vertrouwen creëren** in de procesmodellen voor alle **stakeholders**.
 
 Bij het ontdekken van processen zijn er verschillende uitdagingen:
+
 1. Gefragmenteerde proceskennis
+
 2.  Domein-experten denken op *instance* niveau. (Proces-instance = een unieke passage doorheen een proces: voor 1 bepaalde klant, artikel, leverancier, etc...)
+
 3. Kennis over procesmodellering is zeldzaam
 
 ### Expertise van procesanalisten
@@ -23,13 +26,15 @@ Een procesanalist moet in de eerste plaats de problemen begrijpen dus moet besch
 * Kennis van het probleemdomein
 * Kennis van de organisatie ( helpt om het probleem te structureren)
 
-Om deze problemen op te lossen moet de procesanalist ook bekwaam zijn in:  
+Om deze problemen op te lossen moet de procesanalist ook bekwaam zijn in:
+
 * Het **identificeren van de procestriggers**
 * Hypothese-beheer (formuleren en testen van hypotheses)
 * Uitzetten van **doelstellingen**
 *  **Top-down strategie** gebaseerd op de doelstellingen
 
 Tenslotte moet de procesanalist natuurlijk de nodige **modelleerskills** zoals:
+
 * Goedgestructureerd te werk gaan (duidelijke lay-out)
 * Systematische labels hanteren
 * Expliciete start- en eindpunten
@@ -49,6 +54,7 @@ Tenslotte moet de procesanalist natuurlijk de nodige **modelleerskills** zoals:
 
 #### Uitvraagtechnieken:
 1. **Interviewen**:
+
         * Gestructureerd vs ongestructureerd
         * Combinatie van open en gesloten vragen
         * Veronderstelling; Analist en stakeholder verstaan elkaars terminologie.
@@ -57,6 +63,7 @@ Tenslotte moet de procesanalist natuurlijk de nodige **modelleerskills** zoals:
 > **Luistervaardigheden** zijn heel belangrijk bij een interview: **Empathie** stel uzelf in plaats van spreker, stal hem op gemak (zelf weinig spreken, aanmoedigen hoofdknikjes, korte antwoorden etc...). **Analyse** analytische vragen om bedoeling spreker te achterhalen (stel vragen omzichtig en gebruik elementen uit het antwoord om een volgende vraag voor te bereiden). **Synthese** gesprek proactief in richting van voorafgestelde doelstelling duwen.
 
 2. **Enquête houden**:
+
         * Voordelen: veel informatie in korte tijd, snelle verwerking bij gesloten vragen, geen remmingen indien anoniem.
         * Nadelen: deelnemers kunnen vragen verkeerd interpreteren, je mist 'body language' / non-verbale communicatie.
 
@@ -87,6 +94,7 @@ Tenslotte moet de procesanalist natuurlijk de nodige **modelleerskills** zoals:
 
 ### Techniekkeuze
 Elke techniek heeft voor- en nadelen, er is een **combinatie van technieken** nodig. Houd bij de keuze rekening met volgende aspecten:
+
         * Menselijke: communicatieve en pers. vaardigheden van stakeholder, mensen hebben eigen ervaring met bepaalde technieken, de mate waarin stakeholders zich bewust zijn van requirements.
         * Organisatorische: **beschikbaarheid** belanghebbenden, beschikbaar **budget en doorlooptijd**, creatieve technieken zijn minder gangbaar bij fixed-price/fixed-date projecten. Kies bij vervanging van bestaand systeem voor documentatiegebaseerde technieken.
         * Vakinhoudelijke aspecten: vereiste detailniveau beïnvloedt de keuze + ervaring analist met bepaalde technieken.
