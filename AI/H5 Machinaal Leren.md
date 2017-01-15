@@ -64,6 +64,23 @@ Het is vaak interessant om de performantie van een hypothese te kunnen uitdrukke
 
  > Het gemiddelde nemen van de precisie en de rappel leidt **niet** tot een goede maat om hypothesen te vergelijken.
 
- #### Trainings-, Validatie- en Testdata
+#### Trainings-, Validatie- en Testdata
+ Eens we een maat gekozen hebben rijst de vraag voor welke verzameling we deze maat wensen te optimaliseren. We wensen een hypothese die het goed doet op nieuwe ongeziene voorbeelden. Dus een hypothese die de voorbeelden uit de traingsdataset **generaliseert** en er de patronen in herkent.
 
- 
+ > Het is foutief om te veronderstellen dat een hypothese die zeer goed scoort op de trainingsvoorbeelden ook onmiddelijk goed zal scoren op neuwe ongeziene voorbeelden.
+
+ Om in te schatten hoe goed een hypothese scoort op nieuwe data gebruiken we een verzameling gelabelde voorbeelden die de **testdata** wordt genoemd.
+
+ `Het is van uiterst belang dat deze testdate op geen enkele manier wordt gebruikt bij het opstellen van de hypothese`
+
+ Een hypothese die zeer goed scoort op de trainingsdata maar die slecht scoort op de testadata leidt aan **overfitting**.
+ Om overfitting te vermijden gebruiken sommige modellen meta-parameters of moet er beslist worden wanneer een iteratief trainingsproces wordt gestopt. Bij deze beslissing mag geen gebruik gemaakt worden van de testdata, daarom gebruikt men vaak nog een (derde) dataset die dan de **validatiedataset** wordt genoemd.
+
+  ![alt text](http://users.hogent.be/~427143la/images/OverfittingGrafiek.PNG "OverfittingGrafiek")
+
+  Overfitting begint wanneer de fout op de validatiedataset begint te stijgen. De blauwe lijn stelt de fout voor op de trainingsdata, normaalgezien daalt deze naarmate de training vordert of naarmate het model complexer wordt. Het beste model wordt dus wellicht verkregen op het moment dat de foutmaat op de **validatiedataset** minimaal wordt. *De uiteindelijke schatting voor de foutmaat moet echter gedaan worden adhv een derde dataset: de testdate. Maar deze mag op geen enkel moment gebruikt worden tijdens de trainingsfase*
+
+ Wanneer de klassen van hypothesen waaruit gekozen kan worden niet groot genoeg is om een hypothese te vinden die goed generaliseert spreken we van **onderfitting**.
+
+ #### Ockhams Scheermes:
+ Wanneer er moet gekozen worden tussen twee of meer modellen die de data goed verklaren dan moet men het meest eenvoudig model kiezen.
