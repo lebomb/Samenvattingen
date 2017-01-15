@@ -82,5 +82,5 @@ Het is vaak interessant om de performantie van een hypothese te kunnen uitdrukke
 
  Wanneer de klassen van hypothesen waaruit gekozen kan worden niet groot genoeg is om een hypothese te vinden die goed generaliseert spreken we van **onderfitting**.
 
- #### Ockhams Scheermes:
+#### Ockhams Scheermes:
  Wanneer er moet gekozen worden tussen twee of meer modellen die de data goed verklaren dan moet men het meest eenvoudig model kiezen.
